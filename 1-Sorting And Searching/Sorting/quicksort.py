@@ -27,8 +27,15 @@ def quick_sort(l):
     return quick_sort(items_smaller) + [pivot] + quick_sort(items_greater)
 
 
-# As we can see that more space is being used in this method .
-# We can optmize it by this following method
+# l = list(map(int, input().split()))
+# print(*quick_sort(l))
+
+"""
+As we can see that more space is being used in this method .
+We can optmize it by this following method
+"""
+
+
 def quicksort(start, end, A):
     if start < end:
         p = position(start, end, A)
@@ -57,8 +64,20 @@ def position(start, end, A):
         return i
 
 
-A = [8, 4, 1, 5, 3, 10, 7, 6]
-print(quicksort(0, len(A) - 1, A))
+# A = [8, 4, 1, 5, 3, 10, 7, 6]
+# print(quicksort(0, len(A) - 1, A))
 
-# l = list(map(int, input().split()))
-# print(*quick_sort(l))
+"""
+Worst Time Complexity :
+O(n^2)
+
+Average Time Complexity :
+O(nlogn)
+n -> is for the while loops and 
+logn -> is for the no. of breaks of lists
+
+complexity becomes n^2 when the list is already sorted
+when only one element is not sorted in the list the time will be closer to n^2
+
+list.sort() uses quick sort as it a inplace algo(dont need more space)
+"""
