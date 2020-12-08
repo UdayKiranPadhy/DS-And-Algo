@@ -98,5 +98,8 @@ print(*l)
 Time Complexity : nlogn
 Space Complexity : nlogn
 
-n if for that merge function and logn is the number of times 
+n if for that merge function and logn is the number of times .
+
+Note:-Merge sort Doesnt return any thing it just modifies the array and creates a new one
+even thought it is recurssive in nature.
 """
