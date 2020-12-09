@@ -25,11 +25,11 @@ Explanation: Given array has two inversions:
 """
 # Method-1
 A = [2, 1, 3, 1, 2]
-# count = 0
-# for i in range(len(A)):
-#     for j in range(i + 1, len(A)):
-#         if A[i] > A[j]:
-#             count += 1
+count = 0
+for i in range(len(A)):
+    for j in range(i + 1, len(A)):
+        if A[i] > A[j]:
+            count += 1
 # print(count)
 
 """

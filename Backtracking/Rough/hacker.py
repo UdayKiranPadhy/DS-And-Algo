@@ -1,7 +1,22 @@
-def median(l):
-    if len(l) % 2 == 0:
-        return (l[len(l) // 2] + l[len(l) // 2 - 1]) / 2
-    return l[len(l) // 2]
+def isJump(number):
+    num = str(number)
+    for i in range(len(num)-1):
+        if abs(int(num[i]) - int(num[i+1])) == 1:
+            continue
+        else:
+            return False
+    return True
 
+l=[]
+for i in range(int(input())):
+    l.append(int(input()))
 
-print(median([1, 2, 3, 4, 5]))
+jumping=[]
+each=[]
+for i in l:
+    for j in range(i):
+        if isJump(j):
+            each.append(j)
+    jumping.extend(each)
+    each.clear()
+print(jumping)

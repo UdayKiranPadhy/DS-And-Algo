@@ -87,3 +87,6 @@ while k >= 0 and k <= n - 1:
         k -= 1
         board[k][iterator_column[k]] = 0
 display_board()
+
+
+How to get all possible solution
