@@ -62,3 +62,14 @@ no. of swaps = 3
 
 How to calculate such swaps
 """
+
+
+
+
+"""
+Generate all possible permutation
+"""
+"""
+Are check sums made at OS level
+rsync
+"""

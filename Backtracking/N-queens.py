@@ -1,5 +1,4 @@
 def Can_Place(x, y):
-    """"""
     for i in range(n):
         if board[i][y] == "Q":
             return False
@@ -66,27 +65,48 @@ def display_board():
         print()
 
 
-n = int(input())
-board = [[0 for i in range(n)] for i in range(n)]
-k = 0
-iterator_column = [-1 for i in range(n)]
-while k >= 0 and k <= n - 1:
-    for i in range(iterator_column[k] + 1, len(board)):
-        if (i == (len(board) - 1)) and (Can_Place(k, i) == False):
-            iterator_column[k] = -1
-            k -= 1
-            board[k][iterator_column[k]] = 0
-            break
-        elif Can_Place(k, i):
-            board[k][i] = "Q"
-            iterator_column[k] = i
-            k += 1
-            break
-    else:
-        iterator_column[k] = -1
-        k -= 1
-        board[k][iterator_column[k]] = 0
+# n = int(input())
+# board = [[0 for i in range(n)] for i in range(n)]
+# k = 0
+# iterator_column = [-1 for i in range(n)]
+# while k >= 0 and k <= n - 1:
+#     for i in range(iterator_column[k] + 1, len(board)):
+#         if (i == (len(board) - 1)) and (Can_Place(k, i) == False):
+#             iterator_column[k] = -1
+#             k -= 1
+#             board[k][iterator_column[k]] = 0
+#             break
+#         elif Can_Place(k, i):
+#             board[k][i] = "Q"
+#             iterator_column[k] = i
+#             k += 1
+#             break
+#     else:
+#         iterator_column[k] = -1
+#         k -= 1
+#         board[k][iterator_column[k]] = 0
+# display_board()
+
+
+
+"""
+Recursive Approach Of Back Tracking
+"""
+
+
+def n_queens(col):
+    if col >= len(board):
+        return True
+    for i in range(len(board)):
+        if Can_Place(i, col):
+            board[i][col] = "Q"
+            if n_queens(col + 1):
+                return True
+            board[i][col] = 0
+    return False
+
+
+n = 7
+board = [[0 for i in range(n)] for j in range(n)]
+print(n_queens(col=0))
 display_board()
-
-
-How to get all possible solution
