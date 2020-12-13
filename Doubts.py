@@ -64,12 +64,12 @@ How to calculate such swaps
 """
 
 
-
-
 """
 Generate all possible permutation
 """
+
 """
 Are check sums made at OS level
 rsync
 """
+
