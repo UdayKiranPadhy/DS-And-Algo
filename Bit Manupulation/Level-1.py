@@ -25,4 +25,22 @@ def ispower2(n):
         return 1
     return 1 if (n & (n - 1)) == 0 else 0
 
-print(ispower2(8))
+# print(ispower2(8))
+
+def count1s(n):
+    count = 0
+    while (n):
+        count += 1
+        n = (n & (n - 1))
+    return count
+
+# print(count1s(7))
+
+def subsets(l,n):
+    for i in range(1<<n):
+        for j in range(n):
+            if (i & 1 << j):
+                print(l[j], end=" ")
+        print()
+
+print(subsets([1,2,3,4],4))
