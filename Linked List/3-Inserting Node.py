@@ -1,20 +1,23 @@
-class Node():
+class Node:
     """
     Creates a Node , Parameters are value.
     """
+
     def __init__(self, value):
         self.data = value
         self.next = None
 
-class LinkedList():
+
+class LinkedList:
     """
     Creats a linked list Object , Parametets None
     Functions PrintList
     Variables Head
     """
+
     def __init__(self):
         self.head = None
-        
+
     def printlist(self):
         print(" Linked list Looks like : ")
         temp = self.head
@@ -23,7 +26,8 @@ class LinkedList():
             temp = temp.next
         print()
 
-#Initilize a LinkedList
+
+# Initilize a LinkedList
 llist = LinkedList()
 
 # Initilize Nodes for Linked List
@@ -47,22 +51,26 @@ Inserting of a node can take place at 3 ways:
 3)Insertion at the end
 """
 
-#Insertion at head
-
+# Insertion at head
+print("Insertation at start")
 insert_node = Node(5)
-#Store the head node
+# Store the head node
 temp = llist.head
-#Change the head node
+# Change the head node
 llist.head = insert_node
-#Connect the next the older head
+# Connect the next the older head
 insert_node.next = temp
 llist.printlist()
 
+
+print()
+
 # Insertion at middle
+print("Insertation at middle")
 insert_node = Node(22)
 # We will insert it in middle of 20 and 25
 temp = llist.head
-while (temp.data != 20 and temp):
+while temp.data != 20 and temp:
     temp = temp.next
 
 insert_node.next = temp.next
@@ -70,4 +78,17 @@ temp.next = insert_node
 
 llist.printlist()
 
+print()
 
+# Insertation at end
+print("Insertation at end")
+insert_node = Node(30)
+temp = llist.head
+while temp:
+    if temp.next == None:
+        break
+    temp = temp.next
+
+temp.next = insert_node
+
+llist.printlist()

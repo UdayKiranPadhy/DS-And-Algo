@@ -73,3 +73,73 @@ Are check sums made at OS level
 rsync
 """
 
+"""
+Deleting a linked list 5.py
+"""
+
+"""
+Recussice conditions ??
+Nth element from end by recursive ???
+"""
+
+"""
+Why we cant give a space in init of variable ? what is going at back ? why space is not allowed ?
+like
+```
+var Great Coder = 10
+```
+here Great coder complete is a variable
+"""
+
+
+
+"""
+How t count the number of recursive calls using a variable
+"""
+
+"""
+9:35 pm
+"""
+
+"""
+for i in range(n):
+    for j in range(n):
+        pass
+
+i = 0 => n times
+i = 1 => n times
+i = 2 => n times
+i = 3 => n times
+.
+.
+.
+.
+.
+i = n => n times
+
+n^n right ?? or N^2 ??
+"""
+
+
+"""
+Can We work on pointer on online complier ??
+"""
+
+"""
+void swap(int *a, int *b)
+{
+    *a ^= *b;
+    *b ^= *a;
+    *a ^= *b;
+}
+int main(int argc, char **argv)
+{
+    int a = 3, b = 5;
+
+    printf("a = %d; b = %d\n", a, b);
+    swap(&a, &b);
+    printf("a = %d; b = %d\n", a, b);
+
+    return 0;
+}
+"""
