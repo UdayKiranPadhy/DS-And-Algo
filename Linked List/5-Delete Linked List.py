@@ -84,6 +84,18 @@ class LinkedList:
             current = prev
 
 
+
+
+    def deletelist2(self):
+        current = self.head
+        while current:
+            prev = current.next
+            del current.data
+            current = prev
+# Not able to delete linked list
+
+# I want to delete a LinkedList , memory also del
+
 llist = LinkedList()
 llist.push(10)
 llist.push(9)
@@ -93,5 +105,5 @@ llist.push(6)
 llist.push(4)
 llist.push(3)
 llist.printlist()
-llist.deletelist()
+llist.deletelist2()
 llist.printlist()

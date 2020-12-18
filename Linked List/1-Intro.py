@@ -53,3 +53,8 @@ second_node.next = third_node  # Link second node with the third node
     | 1  |  o-------->| 2  |  o-------->|  3 | null | 
     +----+------+     +----+------+     +----+------+  
 """
+
+
+# Main part in linked list part is its traversels coz python internally makes
+# User defined objects mutable so while removing a node careful during the traversal and pointing
+# poinintg variable , u would only know the problem when u give that a try
