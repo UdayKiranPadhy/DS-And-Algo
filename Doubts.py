@@ -33,3 +33,7 @@ https://practice.geeksforgeeks.org/problems/segregate-even-and-odd-nodes-in-a-li
 Reorder List
 https://practice.geeksforgeeks.org/problems/reorder-list/1
 """
+
+"""
+Swap nodes
+"""
