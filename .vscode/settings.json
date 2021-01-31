@@ -1,6 +1,6 @@
 {
     "python.formatting.provider": "black",
     "files.autoSave": "afterDelay",
-    "python.pythonPath": "C:\\Users\\Uday Kiran\\AppData\\Local\\Programs\\Python\\Python37\\python.exe",
+    "python.pythonPath": "C:\\Users\\Uday Kiran\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
     "editor.formatOnSave": true
 }

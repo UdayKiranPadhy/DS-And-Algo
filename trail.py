@@ -1,0 +1,2 @@
+color=True
+color = !color
