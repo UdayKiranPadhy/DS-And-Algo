@@ -21,9 +21,67 @@ Output
 1
 
 """
+def checkbottom(matrix,i,j):
+    if i+2>=len(matrix):
+        return False
+    if matrix[i][j]==matrix[i+1][j]==matrix[i+2][j]:
+        return True
+    return False
 
+def checktop(matrix,i,j):
+    if i-2<0:
+        return False
+    if matrix[i][j]==matrix[i-1][j]==matrix[i-2][j]:
+        return True
+    return False
+
+def checkright(matrix,i,j):
+    if j+2>=len(matrix[0]):
+        return False
+    if matrix[i][j]==matrix[i][j+1]==matrix[i][j+2]:
+        return True
+    return False
+
+def checkleft(matrix,i,j):
+    if j-2<0:
+        return False
+    if matrix[i][j]==matrix[i][j-1]==matrix[i][j-2]:
+        return True
+    return False
+
+def checkdiagnal(matrix,i,j):
+    if j-2>0 and i-2>0:
+        if matrix[i][j]==matrix[i-1][j-1]==matrix[i-2][j-2]:
+            return True
+    if j+2<len(matrix[0]) and i+2<len(matrix):
+        if matrix[i][j]==matrix[i+1][j+1]==matrix[i+2][j+2]:
+            return True
+    if i-2>0 and j+2<len(matrix[0]):
+        if matrix[i][j]==matrix[i-1][j+1]==matrix[i-2][j+2]:
+            return True
+    if i+2<len(matrix) and j-2>0:
+        if matrix[i][j]==matrix[i+1][j-1]==matrix[i+2][j-2]:
+            return True
+    return False
+    
+m=10
 m=int(input())
 n=m+1
 numbers = []
-matrix=[[0 for j in range(n)] for i in range(m)]
-print(matrix)
+matrix=[]
+for i in range(m):
+    list1=list(map(int,input().split(" ")))
+    matrix.append(list1)
+for i in range(len(matrix)):
+    for j in range(len(matrix[0])):
+        if checktop(matrix,i,j):
+            numbers.append(matrix[i][j])
+        if checkbottom(matrix,i,j):
+            numbers.append(matrix[i][j])
+        if checkright(matrix,i,j):
+            numbers.append(matrix[i][j])
+        if checkleft(matrix,i,j):
+            numbers.append(matrix[i][j])        
+        if checkdiagnal(matrix,i,j):
+            numbers.append(matrix[i][j])
+print(min(numbers))

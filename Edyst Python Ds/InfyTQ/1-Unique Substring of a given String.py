@@ -11,7 +11,6 @@ Example input: A@bcd1abx
 
 Output: A@bcd1a
 """
-
 str1=input()
 str_temp=""
 l=[]
@@ -27,9 +26,16 @@ while i < len(str1):
     else:
         str_temp=str_temp+str1[i]
     i+=1
+
 max_len=-1
-for i in l:
-    if len(i)>max_len:
-        max_str=i
-        max_len=len(i)
-print(max_str)
+if len(l)==0:
+    print(str1)
+else:
+    for i in l:
+        if len(i)>max_len:
+            max_str=i
+            max_len=len(i)
+    if max_len<=2:
+        print("-1")
+    else:
+        print(max_str)
