@@ -1,0 +1,10 @@
+3.SELECT * FROM weather WHERE humidity BETWEEN 63 AND 79
+4.Feature has two 0’s in it, at any position
+4.SELECT city, temperature FROM weather ORDER BY city
+2.SELECT city FROM weather WHERE humidity = 95
+1.ORDER BY
+3.SELECT DISTINCT
+1.SELECT COUNT() FROM Persons
+4.SELECT * FROM Persons ORDER BY FirstName DESC
+3.SELECT * FROM Persons WHERE FirstName LIKE ‘%a’
+4.Data Manipulation language

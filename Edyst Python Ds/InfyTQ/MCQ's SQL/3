@@ -1,0 +1,10 @@
+4.--
+4.All the field of employee relation
+2.LIKE
+3.JOIN
+True
+4.SELECT NAME FROM CUSTOMER WHERE STATE IN ('VA');
+1.COUNT, SUM, AVG, MAX, MIN
+1.SELECT, FROM, WHERE
+1.LIKE only
+2.limits the row data are returned.

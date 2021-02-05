@@ -1,0 +1,16 @@
+3.  select distinct c.name "course_name"
+    from student s 
+    right join student_course sc
+      on s.id = sc.student_id
+    right join course c
+      on c.id = sc.course_id;
+    where s.name is null;
+1.  
+1.
+1,2
+1,2,3
+4
+2
+1
+3
+1
