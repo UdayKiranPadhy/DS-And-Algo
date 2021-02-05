@@ -1,0 +1,10 @@
+Ascending
+%
+Comp Sci
+as
+Select empid where empid = 1009 and lastname = ‘GELLER’;
+All the field of employee relation
+Select name, course_id from instructor natural join teaches;
+Select
+Where, from
+distinct

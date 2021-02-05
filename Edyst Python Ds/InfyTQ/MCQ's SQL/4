@@ -1,0 +1,10 @@
+1.DISTINCT
+2.Check
+2.TOP
+1.AND, OR , NOT
+1.Alias named Address column will be created and under this Address, City and Country will be printed as combined statement.
+4.To sort the records in descending order, use the DECENDING keyword.
+True
+True
+False
+1.DELETE FROM table_name;

@@ -22,7 +22,7 @@ Explanation
 def isEven(k):
     sum=0
     for i in k:
-        sum = sum + (int(k)**2)
+        sum = sum + (int(i)**2)
     if sum%2==0:
         return True
     return False
@@ -31,6 +31,6 @@ k=input()
 for i in k.split(","):
     string,k = i.split(":")
     if isEven(k):
-        print(string(len(string)-1)+string[1:-1])
+        print(string[len(string)-1]+string[:-1])
     else:
         print(string[2:]+string[:2])

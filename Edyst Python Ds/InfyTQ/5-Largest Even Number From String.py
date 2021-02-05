@@ -22,9 +22,24 @@ Output
 """
 k=input()
 l=[]
+even_conists=False
 for i in k:
     if i.isdigit():
         if int(i) not in l:
             l.append(int(i))
-l.sort(reverse=True)
-print(l)
+            if int(i)%2==0:
+                even_conists=True
+if even_conists:
+    l.sort(reverse=True)
+    if l[len(l)-1]%2==0:
+        print("".join([str(ele) for ele in l]))
+    else:
+        right=len(l)-1
+        while right>=0:
+            if l[right]%2==0:
+                l[right],l[len(l)-1]=l[len(l)-1],l[right]
+                break
+            right-=1
+        print("".join([str(ele) for ele in l]))
+else:
+    print("-1")
