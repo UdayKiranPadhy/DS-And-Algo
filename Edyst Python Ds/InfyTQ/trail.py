@@ -1,18 +1,17 @@
-n=input()
-num = [int(i) for i in n if i.isdigit()]
-num=list(set(num))
-num.sort()
-k=-1
-for i in range(len(num)):
-    if num[i]%2==0:
-        k=i
-        break
-if k==-1:
-    print(-1)
-elif num[0]%2==0:
-    num=num[::-1]
-    print(''.join([str(i) for i in num]))
-else:
-    num[0],num[k]=num[k],num[0]
-    num=num[::-1]
-    print(''.join([str(i) for i in num]))
+words=[]
+def toString(List): 
+    return ''.join(List) 
+ 
+def permute(a, l, r): 
+    if l==r: 
+        words.append((toString(a)))
+    else: 
+        for i in range(l,r+1): 
+            a[l], a[i] = a[i], a[l] 
+            permute(a, l+1, r) 
+            a[l], a[i] = a[i], a[l]
+# para = input()
+letters=input().split(" ")
+n=len(letters)
+permute(letters,0,n-1)
+print(words)
