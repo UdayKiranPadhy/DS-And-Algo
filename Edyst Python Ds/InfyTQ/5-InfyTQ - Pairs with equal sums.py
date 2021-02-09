@@ -31,19 +31,37 @@ Output :
 Note : If no solution is possible, return an empty list.
 """
 
+
 class Solution:
     def equal(self, A):
-        index=[]
-        if len(A)>3:
-            for i in range(len(A)-3):
-                for j in range(i+1,len(A)-2):
-                    for k in range(j+1,len(A)-1):
-                        for l in range(k+1,len(A)):
-                            if A[i]+A[j]==A[k]+A[l]:
-                                index.append([i,j,k,l])
+        index = []
+        if len(A) > 3:
+            for i in range(len(A) - 3):
+                for j in range(i + 1, len(A) - 2):
+                    for k in range(j + 1, len(A) - 1):
+                        for l in range(k + 1, len(A)):
+                            if A[i] + A[j] == A[k] + A[l]:
+                                index.append([i, j, k, l])
             return index[0]
         else:
             return []
 
-met=Solution()
-print(met.equal([9, 9, 9, 8, 8, 8, 8, 8, 7, 7, 7, 7, 7, 6, 6, 6, 5, 5, 5, 5, 4, 4, 4, 4, 3, 3, 3, 3, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -2, -2, -2, -2, -2, -2, -2, -3, -3, -3, -4, -4, -4, -4, -4, -4, -4, -4, -4, -5, -5, -5, -5, -5, -5, -5, -6, -6, -7, -7, -7, -7, -7, -7, -7, -7, -8, -8, -8, -8, -8, -9, -9, -9, -9, -9]))
+
+class Solution:
+    # @param A : list of integers
+    # @return a list of integers
+    def equal(self, A):
+
+        n = len(A)
+        for i in range(n):
+            for j in range(i + 1, n):
+                for k in range(1, n):
+                    for l in range(k + 1, n):
+                        if (
+                            not (
+                                i == j or i == k or k == l or j == k or j == l or i == l
+                            )
+                            and A[i] + A[j] == A[l] + A[k]
+                        ):
+                            return [i, j, k, l]
+        return []
