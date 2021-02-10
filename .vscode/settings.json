@@ -1,6 +1,6 @@
 {
     "python.formatting.provider": "black",
     "files.autoSave": "afterDelay",
-    "python.pythonPath": "C:\\Users\\Uday\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe",
+    "python.pythonPath": "/opt/python/latest/bin/python3.8",
     "editor.formatOnSave": true
 }
