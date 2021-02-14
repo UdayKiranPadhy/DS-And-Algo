@@ -37,3 +37,11 @@ https://practice.geeksforgeeks.org/problems/reorder-list/1
 """
 Swap nodes
 """
+
+
+"""
+Queue Last one 
+https://practice.geeksforgeeks.org/problems/maximum-of-all-subarrays-of-size-k3101/1
+Maximum of all k size sub arrays
+"""
+
