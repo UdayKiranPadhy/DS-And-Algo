@@ -41,6 +41,24 @@ Topic Tags
 """
 
 
+"""
+We need to use Sliding window Method to solve this Problem.
+
+Add the elements, to currsum till it is less than S. If it becomes more than S, start deleting elements from start in the cuusum. if the currsum again becomes less than S, again start adding elements to it. In between also check, if the currsum becomes equal to S.
+If yes, then output start and end index, else after traversing array no such solution is found, output -1.
+
+"""
+"""
+The complete solution is
+
+Maintain start and last index to store and print these values 
+Iterate the complete array.
+Add array elements to cuursum
+If currsum becomes greater than S, then remove elements starting from start index, till it become less than or equal to S, and increement start.
+if currsum becomes equals to S, then print the starting and last index
+if the currsum never maches to S, then print -1
+"""
+
 def subArraySum(arr, n, s):
     sum = arr[0]
     start = 0
@@ -60,3 +78,100 @@ def subArraySum(arr, n, s):
 
 
 print(subArraySum([1, 2, 3, 7, 5], 5, 12))
+
+"""
+vector<int> subarraySum(int arr[], int n, int s){
+    
+    int last=0;
+    int start=0;
+    unsigned long long  currsum=0;
+    bool flag=false;
+    vector<int>res;
+    for(int i=0;i<n;i++)
+    {
+        // sum upto current element in the array
+        currsum += arr[i];
+        
+        // check if current sum is greater than or equal to s
+        if(currsum>=s)
+        {
+            // take a pointer at i, named last
+            last=i;
+            
+            // start from start till last
+            // do the excluding part while s < currsum
+            while(s<currsum && start<last)
+            {
+                // subtract the element from left, i.e, arr[start]
+                currsum -= arr[start];
+                ++start;
+            }
+            
+            // now, if current sum is equal to s
+            // then print the start and end index for the subarray
+            if(currsum==s)
+            {
+                
+                res.push_back(start + 1);
+                res.push_back(last + 1);
+                
+                // flag is set to true to check that subarray exists
+                flag = true;
+                break;
+            }
+        }
+    }
+    
+    // if no subarray found, print -1
+    if(flag==false)
+        res.push_back(-1);
+    
+    return res;    
+    
+}
+
+"""
+
+# Java
+"""
+class Subarray{
+
+    static ArrayList<Integer> subarraySum(int[] arr, int n, int s) {
+        int first = 0;
+        int last = 0;
+
+        long result = arr[first];
+        ArrayList<Integer> res = new ArrayList<Integer>();
+        while (result != s) {
+            if (result > s) {
+                if (first == last) {
+                    last++;
+                    first++;
+                    if (last >= n) break;
+                    result = arr[first];
+                } else {
+                    result -= arr[first];
+                    first++;
+                }
+            } else {
+                last++;
+                if (last < n) {
+                    result += arr[last];
+                } else {
+                    break;
+                }
+            }
+        }
+
+        if (result != s) {
+            res.add(-1);
+        } else {
+            res.add(first + 1);
+            res.add(last + 1);
+            
+        }
+        return res;    
+    }
+}
+
+"""
