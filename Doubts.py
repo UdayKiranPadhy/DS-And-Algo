@@ -45,3 +45,9 @@ https://practice.geeksforgeeks.org/problems/maximum-of-all-subarrays-of-size-k31
 Maximum of all k size sub arrays
 """
 
+
+"""
+Rearrange Array Alternately
+https://practice.geeksforgeeks.org/problems/-rearrange-array-alternately-1587115620/1
+""" 
+
