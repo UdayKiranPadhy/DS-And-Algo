@@ -60,3 +60,4 @@ def sort012(arr, N):
             arr[high], arr[mid] = arr[mid], arr[high]
             high -= 1
             continue
+print(sort012([0,0,1,2,1,2,1,2,1,1,2,0],5))
