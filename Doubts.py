@@ -49,5 +49,8 @@ Maximum of all k size sub arrays
 """
 Rearrange Array Alternately
 https://practice.geeksforgeeks.org/problems/-rearrange-array-alternately-1587115620/1
-""" 
+"""
 
+"""
+Reverse in pairs
+"""

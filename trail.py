@@ -1,7 +1,2 @@
-string = input()
-for i in string:
-    if i in "AEIOUaeiou":
-        continue
-    else:
-        print(i,end="")
-    
+aux=[1,2,3,4]
+print(aux + [4,5,6])
