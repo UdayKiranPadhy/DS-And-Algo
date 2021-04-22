@@ -37,7 +37,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="/home/codespace/workspace/DS-And-Algo/.venv"
+VIRTUAL_ENV="/workspaces/DS-And-Algo/.venv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
