@@ -1,5 +1,9 @@
+# Important for interview perpespective only not asked in coding exams because
+# these are Gun shot questions and need to be implemented in O(1) time so
+# Every one just hard memorize it . Remember these are O(1) time .
 
-# print(bin(a).lstrip("0b"))
+a = 10
+print(bin(a).lstrip("0b"))
 # print(~a) #-11
 """
 Bitwise Not returns like this
@@ -7,11 +11,15 @@ Bitwise Not returns like this
 -(1010 +1)
 -11
 """
-# print(a&9) #8
+print(a & 9)  # 8
+# 1010
+# 1001
+
 
 # print(a << 1)  # 10100 20
 # print(a << 2)  # 101000 40
-# print(a >> 1)  # 101 5
-import math
+# print(a >> 1)  # 101 5a
 
-print(math.sqrt(-4))
+# Binary to decimal
+# int('11111111', 2)
+# 255
