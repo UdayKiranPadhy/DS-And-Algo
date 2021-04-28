@@ -23,3 +23,7 @@ print(a & 9)  # 8
 # Binary to decimal
 # int('11111111', 2)
 # 255
+
+# If we right shift a number n by 1 it will be eqaul to n/2
+# 1010 -10
+# 0101 - 5
