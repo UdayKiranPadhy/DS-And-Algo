@@ -1,25 +1,4 @@
 """
-void swap(int *a, int *b)
-{
-    *a ^= *b;
-    *b ^= *a;
-    *a ^= *b;
-}
-
-
-int main(int argc, char **argv)
-{
-    int a = 3, b = 5;
-
-    printf("a = %d; b = %d\n", a, b);
-    swap(&a, &b);
-    printf("a = %d; b = %d\n", a, b);
-
-    return 0;
-}
-"""
-
-"""
 Rearrange list
 https://practice.geeksforgeeks.org/problems/rearrange-a-linked-list/1
 """
