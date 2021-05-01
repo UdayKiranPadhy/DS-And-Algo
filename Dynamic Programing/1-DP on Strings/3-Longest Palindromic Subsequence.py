@@ -27,6 +27,8 @@ s consists only of lowercase English letters.
 
 # Solution
 """
+According to Intro it is case 2
+
 2. If you are given only one string
 
 /* Pre-processing. Define basic cases. */
@@ -65,7 +67,7 @@ If last and first characters of X are same, then L(0, n-1) = L(1, n-2) + 2.
 Else L(0, n-1) = MAX (L(1, n-1), L(0, n-2)).
 """
 
-
+"""
 def LPS(string: str, m: int, n: int) -> int:
     # Base Case
     # If there is only one character
@@ -130,17 +132,16 @@ print(
 # Now see the Speed (GG Speed)
 # https://leetcode.com/problems/longest-palindromic-subsequence/
 
-# Method 2 using template 1
-
-
-def LPS3(s):
-    t = reversed(s)
-    # t= s[::-1]
-    dp = [[0 for _ in range(len(t) + 1)] for __ in range(len(s) + 1)]
-    for i in range(1, 1 + len(s)):
-        for j in range(1, 1 + len(t)):
-            if s[i - 1] == t[j - 1]:
-                dp[i][j] = 1 + dp[i - 1][j - 1]
-            else:
-                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
-    return dp[-1][-1]
+"""
+# Recursive Approach
+def LPS(string,m,n):
+    if m == n :
+        return 1 
+    elif m > n :
+        return 0
+    elif string[m] == string[n] and m + 1 = n:
+        return 2
+    elif string[m] == string[n]:
+        return 2 + LPS(string,m+1,n-1)
+    else:
+        return max(LPS(string,m+1,n),LPS(string,m,n-1))

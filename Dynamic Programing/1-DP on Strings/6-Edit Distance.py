@@ -5,9 +5,9 @@ Given two strings word1 and word2, return the minimum number of operations
 required to convert word1 to word2.
 
 You have the following three operations permitted on a word:
-Insert a character
-Delete a character
-Replace a character
+Insert a character 
+Delete a character 
+Replace a character 
 
 Example 1:
 
@@ -64,8 +64,6 @@ String1 is empty and String2 is not empty: We need insert characters to make it 
 Minimum operations to be performed will be equal to string2 length.
 String1 is not empty and String2 is empty: We have delete characters to make it as string2.
 
-
-
 Step 3:
 The main problem definition goes here.
 
@@ -80,8 +78,6 @@ Return dp[string1.length][string2.length]. Since it contains the answer for subp
 """
 
 # Naive Recursive Approach
-
-# This is top to bottom Approach
 
 
 def editDistance(string1, string2, m, n):
@@ -110,10 +106,10 @@ def editDistance(string1, string2, m, n):
         )
 
 
-# print(editDistance("Uday","Usha",4,4))
+# print(editDistance("Uday", "Usha", 4, 4))
 
 # The time complexity of above solution is exponential.
-# In worst case, we may end up doing O(3m) operations.
+# In worst case, we may end up doing O(3^m) operations.
 # The worst case happens when none of characters of two strings match.
 
 
@@ -134,7 +130,36 @@ def editDistance(string1, string2, m, n):
 # y  [4, 4, 4, 3, 2]
 
 
-def editDistance2(string1, string2):
+# Recursive Memorizatation Bottom-up
+
+
+def editDistance2(string1, string2, m, n):
+    global dp
+    if dp[m][n]:
+        return dp[m][n]
+    else:
+        if m == 0:
+            dp[m][n] = n
+            return n
+        elif n == 0:
+            dp[m][n] = m
+        elif string1[m] == string2[n]:
+            dp[m][n] = editDistance2(string1, string2, m - 1, n - 1)
+            return dp[m][n]
+        else:
+            dp[m][n] = 1 + min(
+                editDistance2(string1, string2, m - 1, n),
+                editDistance2(string1, string2, m, n - 1),
+                editDistance2(string1, string2, m - 1, n - 1),
+            )
+            return dp[m][n]
+
+
+# print(editDistance("Uday", "Usha", 4, 4))
+
+# Top - down Approach
+
+def editDistance3(string1, string2):
     m = len(string1)
     n = len(string2)
 
@@ -167,4 +192,4 @@ def editDistance2(string1, string2):
 # j  [2, 2, 2, 3, 4],
 # a  [3, 3, 3, 2, 3],
 # y  [4, 4, 4, 3, 2]
-print(editDistance2("Uday", "Ajay"))
+# print(editDistance2("Uday", "Ajay"))
