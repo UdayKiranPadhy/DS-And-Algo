@@ -134,14 +134,57 @@ print(
 
 """
 # Recursive Approach
-def LPS(string,m,n):
-    if m == n :
-        return 1 
-    elif m > n :
+def LPS(string, m, n):
+    if m == n:
+        return 1
+    elif m > n:
         return 0
-    elif string[m] == string[n] and m + 1 = n:
+    elif string[m] == string[n] and m + 1 == n:
         return 2
     elif string[m] == string[n]:
-        return 2 + LPS(string,m+1,n-1)
+        return 2 + LPS(string, m + 1, n - 1)
     else:
-        return max(LPS(string,m+1,n),LPS(string,m,n-1))
+        return max(LPS(string, m + 1, n), LPS(string, m, n - 1))
+
+
+print(LPS("bbbab", 0, 4))
+
+# Top Down Approach
+
+# LPS is a sub problem of LCS we have to find LCS of the given string and the reverse string of it
+
+
+def LPS2(string):
+    dp = [[0 for i in range(len(string) + 1)] for j in range(len(string) + 1)]
+
+    reverse = string[::-1]
+
+    for i in range(1, len(string) + 1):
+        for j in range(1, len(string) + 1):
+            if string[i - 1] == reverse[j - 1]:
+                dp[i][j] = 1 + dp[i - 1][j - 1]
+            else:
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
+    return dp[-1][-1]
+
+
+print(LPS2("bbbab"))
+
+
+def LPS3(string):
+    m = len(string)
+    dp = [[0] * m for i in range(m)]
+    for i in range(m):
+        dp[i][i] = 1
+
+    for i in range(m):
+        length = 0
+        while i + length < m:
+            j = i + length
+            length += 1
+            if string[i] == string[j]:
+                dp[i][j] = 2 + dp[i + 1][j - 1]
+            else:
+                dp[i][j] = max(dp[i][j - 1], dp[i + 1][j])
+
+    return dp[0][-1]
