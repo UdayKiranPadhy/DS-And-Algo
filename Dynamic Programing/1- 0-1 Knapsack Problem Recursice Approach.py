@@ -40,9 +40,8 @@ def Knapsack(weight, value, W, n):
         return Knapsack(weight, value, W, n - 1)
 
 
-val = [60, 100, 120]
-wt = [10, 20, 30]
-W = 50
+val = [10, 15, 40]
+wt = [1, 2, 3]
+W = 6
 n = len(val)
-print(Knapsack(wt, val, W, n)) #220
-
+print(Knapsack(wt, val, W, n))  # 220
