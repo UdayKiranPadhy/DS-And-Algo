@@ -1,11 +1,12 @@
 """
 
 Kth smallest element 
-Medium Accuracy: 46.66% Submissions: 27909 Points: 4
-Given an array arr[] and a number K where K is smaller than size of array, the task is to find the Kth smallest element in the given array. It is given that all array elements are distinct.
+
+Given an array arr[] and a number K where K is smaller than size of array, 
+the task is to find the Kth smallest element in the given array. It is 
+given that all array elements are distinct.
 
 Example 1:
-
 Input:
 N = 6
 arr[] = 7 10 4 3 20 15
@@ -14,8 +15,8 @@ Output : 7
 Explanation :
 3rd smallest element in the given 
 array is 7.
-Example 2:
 
+Example 2:
 Input:
 N = 5
 arr[] = 7 10 4 20 15
@@ -24,18 +25,19 @@ Output : 15
 Explanation :
 4th smallest element in the given 
 array is 15.
+
 Your Task:
-You don't have to read input or print anything. Your task is to complete the function kthSmallest() which takes the array, it's size and an integer k as input and returns the kth smallest element.
- 
+You don't have to read input or print anything. Your task is to complete the function 
+kthSmallest() which takes the array, it's size and an integer k as input and returns 
+the kth smallest element.
  
 Expected Time Complexity: O(n)
 Expected Auxiliary Space: O(1)
 Constraints:
-1 <= N <= 105
-1 <= arr[i] <= 105
+1 <= N <= 10^5
+1 <= arr[i] <= 10^5
 1 <= K <= N
  
-
 Company Tags
  ABCO Accolite Amazon Cisco Hike Microsoft Snapdeal VMWare
 Topic Tags
@@ -65,25 +67,25 @@ def kthSmallest(arr, k):
 # print(kthSmallest([5, 5, 6, 4, 1, 8, 32, 2, 4, 0, 9], 5))
 
 # Solution 2
-def insertsort(element,arr,k):
-    if arr[k-1]<=element:
+def insertsort(element, arr, k):
+    if arr[k - 1] <= element:
         return
     arr.pop()
     for i in range(len(arr)):
-        if arr[i]>=element:
-            arr.insert(i,element)
+        if arr[i] >= element:
+            arr.insert(i, element)
             break
     else:
         arr.append(element)
 
 
-def smallestelement(arr,k):
-    l=arr[:k]
+def smallestelement(arr, k):
+    l = arr[:k]
     l.sort()
-    for i in range(k,len(arr)):
-        insertsort(arr[i],l,k)
+    for i in range(k, len(arr)):
+        insertsort(arr[i], l, k)
     print(l)
-    return l[k-1]
+    return l[k - 1]
 
-print(smallestelement([5,8,9,3,1,4,5,6,7,5,3,4,4],5))
 
+print(smallestelement([5, 8, 9, 3, 1, 4, 5, 6, 7, 5, 3, 4, 4], 5))

@@ -98,6 +98,32 @@ def leaders(A,N):
     return ans
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 C++
 vector<int> leaders(int a[], int n){
     vector<int> v;

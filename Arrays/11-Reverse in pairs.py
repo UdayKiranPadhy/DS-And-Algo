@@ -33,8 +33,8 @@ Expected Auxiliary Space: O(N)
  
 
 Constraints:
-1 ≤ N, K ≤ 107
-1 ≤ A[i] ≤ 1018
+1 ≤ N, K ≤ 10^7
+1 ≤ A[i] ≤ 10^18
 
 Topic Tags
  Arrays
@@ -97,6 +97,30 @@ class Solution2:
                 arr[i:] = reversed(arr[i:])
                 # updating index from i to i+k.
                 i += K
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # C++
 """

@@ -44,7 +44,9 @@ Topic Tags
 """
 We need to use Sliding window Method to solve this Problem.
 
-Add the elements, to currsum till it is less than S. If it becomes more than S, start deleting elements from start in the cuusum. if the currsum again becomes less than S, again start adding elements to it. In between also check, if the currsum becomes equal to S.
+Add the elements, to currsum till it is less than S. If it becomes more than S, start deleting 
+elements from start in the currsum. if the currsum again becomes less than S, again start adding elements 
+to it. In between also check, if the currsum becomes equal to S.
 If yes, then output start and end index, else after traversing array no such solution is found, output -1.
 
 """
@@ -54,7 +56,8 @@ The complete solution is
 Maintain start and last index to store and print these values 
 Iterate the complete array.
 Add array elements to cuursum
-If currsum becomes greater than S, then remove elements starting from start index, till it become less than or equal to S, and increement start.
+If currsum becomes greater than S, then remove elements starting from start index, till it become less 
+than or equal to S, and increement start.
 if currsum becomes equals to S, then print the starting and last index
 if the currsum never maches to S, then print -1
 """

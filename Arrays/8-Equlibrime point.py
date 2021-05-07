@@ -33,8 +33,8 @@ Expected Time Complexity: O(n)
 Expected Auxiliary Space: O(1)
 
 Constraints:
-1 <= n <= 106
-1 <= A[i] <= 108
+1 <= n <= 10^6
+1 <= A[i] <= 10^8
 
 Company Tags
  Adobe Amazon
@@ -123,6 +123,23 @@ def equilibriumPoint(A, N):
         
     return -1
 """
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 # C++
 """

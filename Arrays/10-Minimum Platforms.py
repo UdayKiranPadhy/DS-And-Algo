@@ -50,7 +50,7 @@ Constraints:
 Company Tags
  Amazon Boomerang Commerce D-E-Shaw Hike Paytm Walmart Zillious Microsoft
 Topic Tags
- Arrays Greedy
+ Arrays Greedy 2-Pointer
 Related Course
 """
 
@@ -58,9 +58,10 @@ Related Course
 """
 Naive Solution: 
 
+Approach: The idea is to take every interval one by one and find the number of 
+intervals that overlap with it. Keep track of the maximum number of intervals 
+that overlap with an interval. Finally, return the maximum value.
 
-
-Approach: The idea is to take every interval one by one and find the number of intervals that overlap with it. Keep track of the maximum number of intervals that overlap with an interval. Finally, return the maximum value.
 Algorithm: 
 Run two nested loops the outer loop from start to end and inner loop from i+1 to end.
 For every iteration of outer loop find the count of intervals that intersect with the current interval.
