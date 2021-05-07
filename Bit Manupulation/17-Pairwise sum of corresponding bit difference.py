@@ -36,6 +36,40 @@ class Solution:
         return sum
 
 
+# Method 2 :
+"""
+Assume that all values in input have only 1 bit i.e. Ai = 0 or 1.
+Lets say A = count of elements which are 0
+and B = count of elements which are 1
+
+In this case our answer is just 2AB, since each such pair contributes 
+1 to answer.
+
+Can you combine this logic if we have multiple bits?
+
+Note that all bits are independent in counting, since we are counting 
+number of bits which are different in each pair.
+So, we just do the same process for all different bits. Since Ai is 
+an integer, we just have to do this for 31 different bits, so our 
+solution is O(31*N).
+"""
+
+
+class Solution:
+    # @param A : list of integers
+    # @return an integer
+    def cntBits(self, A):
+        l = len(A)
+        ans = 0
+        for i in range(31):
+            count1 = 0
+            for a in A:
+                if a & (1 << i) > 0:
+                    count1 += 1
+            ans += 2 * count1 * (l - count1)
+        return ans % 1000000007
+
+
 # Solution 2
 import numpy as np
 
