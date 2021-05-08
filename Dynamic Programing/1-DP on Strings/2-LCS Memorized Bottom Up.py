@@ -59,8 +59,8 @@ Topic Tags
 def LCS(string1: str, string2: str, m: int, n: int) -> int:
     global dp
     if m == 0 or n == 0:
-        dp[m][n]
-        return 0
+        dp[m][n] = 0
+        return dp[m][n]
     if dp[m][n] == -1:
         if string1[m - 1] == string2[n - 1]:
             dp[m][n] = 1 + LCS(string1, string2, m - 1, n - 1)
