@@ -1,6 +1,11 @@
 """
-The problem “Find the First Circular Tour that visits all the Petrol Pumps” states that there are N petrol pumps on a circular road. Given the petrol that every petrol pump has and the amount of petrol required to cover the distance between two petrol pumps. So you need to find the first petrol pump where a truck starts and can complete the circle.
-The input format is as, {x, y}, where x is the petrol that the petrol pump has and y is the fuel needed to reach from this petrol pump to next petrol pump.
+The problem “Find the First Circular Tour that visits all the Petrol Pumps” states that there 
+are N petrol pumps on a circular road. Given the petrol that every petrol pump has and the 
+amount of petrol required to cover the distance between two petrol pumps. So you need to 
+find the first petrol pump where a truck starts and can complete the circle.
+
+The input format is as, {x, y}, where x is the petrol that the petrol pump has and y is 
+the fuel needed to reach from this petrol pump to next petrol pump.
 If there is no possible tour, output -1.
 
 Examples

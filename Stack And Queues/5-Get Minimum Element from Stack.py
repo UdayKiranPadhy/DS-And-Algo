@@ -1,5 +1,6 @@
 """
-You are given N elements and your task is to Implement a Stack in which you can get minimum element in O(1) time.
+You are given N elements and your task is to Implement a Stack 
+in which you can get minimum element in O(1) time.
 
 Example 1:
 
@@ -37,8 +38,12 @@ Topic Tags
 
 """
 
+
 """
-1. Define a variable minEle that stores the current minimum element in the stack. When a minEle is removed fromt he stack, we push “2x – minEle” into the stack instead of x so that previous minimum element can be retrieved using current minEle and its value stored in stack.
+1. Define a variable minEle that stores the current minimum element in the stack. 
+When a minEle is removed fromt he stack, we push “2x – minEle” into the stack 
+instead of x so that previous minimum element can be retrieved using current minEle 
+and its value stored in stack.
 
 Push(x) : Inserts x at the top of stack.
 

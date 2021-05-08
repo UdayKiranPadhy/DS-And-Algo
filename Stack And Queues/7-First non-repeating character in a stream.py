@@ -1,7 +1,11 @@
 """
+
 First non-repeating character in a stream 
-Medium Accuracy: 44.24% Submissions: 1549 Points: 4
-Given an input stream of A of n characters consisting only of lower case alphabets. The task is to find the first non repeating character, each time a character is inserted to the stream. If there is no such character then append '#' to the answer.
+
+Given an input stream of A of n characters consisting only of lower 
+case alphabets. The task is to find the first non repeating character, 
+each time a character is inserted to the stream. If there is no such 
+character then append '#' to the answer.
  
 
 Example 1:
@@ -25,7 +29,9 @@ repeating character is as follow-
  
 
 Your Task:
-You don't need to read or print anything. Your task is to complete the function FirstNonRepeating() which takes A as input parameter and returns a string after processing the input stream.
+You don't need to read or print anything. Your task is to complete the function 
+FirstNonRepeating() which takes A as input parameter and returns a string after 
+processing the input stream.
  
 
 Expected Time Complexity: O(26 * n)
