@@ -50,23 +50,9 @@ Method 1 (Simple)
 Use two loops: The outer loop picks all the elements one by one. The inner loop looks for the first greater element for the element picked by the outer loop. If a greater element is found then that element is printed as next, otherwise -1 is printed.
 """
 
-
-def printNGE(arr):
-    for i in range(0, len(arr), 1):
-        next = -1
-        for j in range(i + 1, len(arr), 1):
-            if arr[i] < arr[j]:
-                next = arr[j]
-                break
-
-        print(str(arr[i]) + " -- " + str(next))
-
-
-# Driver program to test above function
-arr = [11, 13, 21, 3]
-printNGE(arr)
+# printNGE(arr)
 """
-Time Complexity: O(n2). The worst case occurs when all elements are sorted in decreasing order.
+Time Complexity: O(n^2). The worst case occurs when all elements are sorted in decreasing order.
 
 Method 2 (Using Stack) 
 
@@ -84,19 +70,21 @@ After the loop in step 2 is over, pop all the elements from stack and print -1 a
 # My Trail
 def nextLargerElement(arr, n):
     stack = []
-    output = [-1 for i in range(n)]
-    for i in range(n):
+    output = []
+    for i in range(len(arr) - 1, -1, -1):
         if len(stack) == 0:
-            stack.append(arr[i])
-            continue
-        else:
-            if stack[-1] >= arr[i]:
-                stack.append(arr[i])
-                continue
+            output.append(-1)
+        elif len(stack) > 0 and stack[-1] > arr[i]:
+            output.append(stack[-1])
+        elif len(stack) > 0 and stack[-1] < arr[i]:
+            while len(stack) > 0 and stack[-1] < arr[i]:
+                stack.pop()
+            if len(stack) == 0:
+                output.append(-1)
             else:
-                while stack and stack[-1] < arr[i]:
-                    output[arr.index(stack.pop(-1))] = arr[i]
-                stack.append(arr[i])
+                output.append(stack[-1])
+        stack.append(arr[i])
+    output.reverse()
     print(output)
 
 
