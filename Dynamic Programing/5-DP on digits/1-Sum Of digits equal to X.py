@@ -11,7 +11,13 @@ Output: 2
 Input: L = 500, R = 1000, Y = 6 
 Output: 3 
  
+https://www.geeksforgeeks.org/count-of-numbers-from-range-l-r-whose-sum-of-digits-is-y/
 
+https://youtu.be/2yAEj-0A8bk
+
+https://codeforces.com/blog/entry/53960
+
+https://leetcode.com/problems/numbers-at-most-n-given-digit-set/discuss/559624/python-digit-dp
 """
 
 Y = 5
