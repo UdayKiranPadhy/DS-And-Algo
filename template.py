@@ -11,3 +11,27 @@ sys.stdout.write("\n")
 n, m = [int(x) for x in input().split()]
 coords = [int(x) for x in input().split()]
 directions = [x for x in input().split()]
+
+
+
+from sys import *
+import math
+#import queue
+input=stdin.readline
+I=int
+R=range
+listInput=lambda:list(map(int,input().strip().split()))
+lineInput= lambda:map(int,input().strip().split())
+sJoin=lambda a,sep : '{}'.format(sep).join(a)
+arrJoin=lambda a,sep : '{}'.format(sep).join(map(str,a))
+
+inf = sys.maxsize
+mod = 10000007
+
+
+
+import threading
+sys.setrecursionlimit(1000000)
+threading.stack_size(1024000)
+thread = threading.Thread(target=main)
+thread.start()

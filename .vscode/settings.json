@@ -1,5 +1,4 @@
 {
-    "python.formatting.provider": "black",
     "files.autoSave": "afterDelay",
     "python.pythonPath": "C:\\Program Files\\WindowsApps\\PythonSoftwareFoundation.Python.3.9_3.9.1520.0_x64__qbz5n2kfra8p0\\python3.9.exe",
     "editor.formatOnSave": true
