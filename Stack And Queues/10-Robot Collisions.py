@@ -1,4 +1,5 @@
 """
+Problem Statement : https://codeforces.com/contest/1525/problem/C
 
 C. Robot Collisions
 time limit per test 2 seconds
@@ -140,33 +141,31 @@ Overall complexity: O(nlogn).
 
 def partner(robots):
     robots.sort()  # Sorting based on Co-ordinates
-    print(robots)
-    partnerships = []
-    stack = []
+    partnerships = []  # Will Store which robot will colide with other robot
+    stack = []  # Used for Storing Robots going to right
     for robot in robots:
+        # If the robot is moving right then append to the list
         if len(stack) == 0 or robot[1] == "R":
             stack.append(robot)
-            print(stack)
         else:
+            # Since robot is going to left pop a robot which is moving to right
             poppedRobot = stack.pop()
-            print(poppedRobot)
+            # Make them A pair
             partnerships.append((poppedRobot, robot))
-            print(partnerships)
+    # Make pairs of remaining robots
+    while len(stack) > 1:
+        poppedRobot1 = stack.pop()
+        poppedRobot2 = stack.pop()
+        partnerships.append((poppedRobot2, poppedRobot1))
+
+    return partnerships
 
 
-NoOfTestCases = 1
+NoOfTestCases = int(input())
 for t in range(NoOfTestCases):
-    n, m = 7, 12  # [int(i) for i in input().strip().split(" ")]
-    co_ordinates = [
-        1,
-        2,
-        3,
-        4,
-        9,
-        10,
-        11,
-    ]  # [int(x) for x in input().strip().split(" ")]
-    directions = ["R", "R", "L", "L", "R", "R", "R"]  # [x for x in input().split(" ")]
+    n, m = [int(i) for i in input().strip().split(" ")]
+    co_ordinates = [int(x) for x in input().strip().split(" ")]
+    directions = [x for x in input().split(" ")]
     robots = list(zip(co_ordinates, directions, range(n)))
     odd = []
     even = []
@@ -176,46 +175,8 @@ for t in range(NoOfTestCases):
         else:
             odd.append(robot)
 
-    partnerships = partner(even)
-
-
-"""
-
-
-def partners(robots):
-    robots.sort()
-    partnerships = []
-    stack = []
-    for robot in robots:
-        if len(stack) == 0 or robot[1] == "R":
-            stack.append(robot)
-        else:
-            poppedRobot = stack.pop()
-            partnerships.append((poppedRobot, robot))
-    while len(stack) > 1:
-        poppedRobot1 = stack.pop()
-        poppedRobot2 = stack.pop()
-        partnerships.append((poppedRobot2, poppedRobot1))
- 
-    return partnerships
- 
- 
-t = int(input())
-for _ in range(t):
-    n, m = map(int, input().split())
-    coords = list(map(int, input().split()))
-    direction = list(input().split())
- 
-    robots = list(zip(coords, direction, range(n)))
-    odds = []
-    evens = []
-    for robot in robots:
-        if robot[0] % 2 == 0:
-            evens.append(robot)
-        else:
-            odds.append(robot)
- 
-    partnerships = partners(odds) + partners(evens)
+    partnerships = partner(even) + partner(odd)
+    # [((2, 'R', 1), (4, 'L', 3)), ((1, 'R', 0), (3, 'L', 2)), ((9, 'R', 4), (11, 'R', 6))]
     distances = [-1] * n
     for a, b in partnerships:
         if a[1] == "R" and b[1] == "L":
@@ -223,13 +184,11 @@ for _ in range(t):
         elif a[1] == "L" and b[1] == "L":
             distance = (b[0] + a[0]) // 2
         elif a[1] == "R" and b[1] == "R":
-            distance = (2 * m - a[0] - b[0]) // 2
+            distance = (2 * m - (a[0] + b[0])) // 2
         else:
             distance = (2 * m + a[0] - b[0]) // 2
- 
+
         distances[a[2]] = distance
         distances[b[2]] = distance
- 
-    print(*distances)
 
-"""
+    print(*distances)
