@@ -27,11 +27,3 @@ arrJoin=lambda a,sep : '{}'.format(sep).join(map(str,a))
 
 inf = sys.maxsize
 mod = 10000007
-
-
-
-import threading
-sys.setrecursionlimit(1000000)
-threading.stack_size(1024000)
-thread = threading.Thread(target=main)
-thread.start()
