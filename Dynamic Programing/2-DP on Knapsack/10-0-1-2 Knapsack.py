@@ -1,5 +1,5 @@
 """
-
+Problem Statement : https://leetcode.com/problems/closest-dessert-cost/
 1774. Closest Dessert Cost
 Medium
 
@@ -69,41 +69,32 @@ m == toppingCosts.length
 
 """
 
-import sys
-from functools import lru_cache
 
+class Solution:
+    def closestCost(self, baseCosts: list[int], toppingCosts: list[int], target: int) -> int:
+        ans = []
+        result = [float('inf')]
 
-# @lru_cache(None)
-def knapsack(topings, start_index, total):
-    if total == 0:
-        return 0
-    elif total < 0:
-        return sys.maxsize
-    elif start_index >= len(topings):
-        return sys.maxsize
-    elif total >= topings[start_index]:
-        return min(knapsack(topings, start_index+1, total-topings[start_index]),
-                   knapsack(topings, start_index+1,
-                            total-2*topings[start_index]),
-                   knapsack(topings, start_index+1, total))
-    else:
-        return total
+        mem = set()
 
+        def process(b, idx=0):
+            req = (target-b)
+            if abs(req) < abs(target-result[0]) or abs(req) == abs(target-result[0]) and b < target:
+                result[0] = b
 
-def solve():
-    target = I(input())
-    basecosts = listInput()
-    topings = listInput()
-    topings.sort()
-    costs = []
-    for i in R(len(basecosts)):
-        costs.append(knapsack(topings, i, target-basecosts[i]))
-    print(costs)
+            if b > target:
+                return
 
+            if (b, idx) in mem:
+                return
+            mem.add((b, idx))
 
-if __name__ == '__main__':
-    I = int
-    R = range
-    def listInput(): return [I(x) for x in input().strip().split(" ")]
-    for t in R(I(input())):
-        solve()
+            for i in range(idx, len(toppingCosts)):
+                process(b, i+1)
+                process(b+toppingCosts[i], i+1)
+                process(b+toppingCosts[i]+toppingCosts[i], i+1)
+
+        for b in baseCosts:
+            process(b)
+
+        return result[0]
