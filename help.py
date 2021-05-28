@@ -1,2 +1,1 @@
-from collections import deque
-help(deque)
+help(dict.get)

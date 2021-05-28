@@ -36,6 +36,9 @@ Constraints:
 """
 
 
+from collections import lrucache
+
+
 class Solution:
     def threeSum(self, nums: list[int]) -> list[list[int]]:
         if len(nums) < 3:
@@ -62,7 +65,6 @@ class Solution:
 
 model = Solution()
 print(model.threeSum([-1, 0, 1, 2, -1, -4]))
-
 
 # class Solution:
 #     def threeSum(self, nums: List[int]) -> List[List[int]]:
