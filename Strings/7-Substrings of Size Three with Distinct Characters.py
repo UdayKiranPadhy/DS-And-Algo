@@ -72,4 +72,10 @@ class Solution:
         return sum(s[i] != s[i-1] != s[i-2] != s[i] for i in range(2, len(s)))
 
 
-class
+class Solution():
+    def countGoodSubStrings(self, s: str):
+        count = 0
+        for x, y, z in zip(s, s[1:], s[2:]):
+            if x != y and y != z and z != x:
+                count += 1
+        return count
