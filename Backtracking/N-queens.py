@@ -106,7 +106,7 @@ def n_queens(col):
     return False
 
 
-n = 7
-board = [[0 for i in range(n)] for j in range(n)]
-print(n_queens(col=0))
-display_board()
+# n = 7
+# board = [[0 for i in range(n)] for j in range(n)]
+# print(n_queens(col=0))
+# display_board()
