@@ -68,6 +68,7 @@ from functools import lru_cache
 class Solution:
     def isInterleave(self, s1: str, s2: str, s3: str) -> bool:
         if len(s1) + len(s2) != len(s3):
+            # If the length is not equal return False
             return False
 
         @lru_cache(None)

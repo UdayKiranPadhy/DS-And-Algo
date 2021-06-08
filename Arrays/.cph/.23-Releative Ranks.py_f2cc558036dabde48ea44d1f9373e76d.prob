@@ -1,0 +1,1 @@
+{"name":"Local: 23-Releative Ranks","url":"d:\\DS-And-Algo\\Arrays\\23-Releative Ranks.py","tests":[{"id":1622682902271,"input":"5 4 3 2 1","output":"['Gold Medal', 'Silver Medal', 'Bronze Medal', '4', '5']"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DS-And-Algo\\Arrays\\23-Releative Ranks.py","group":"local","local":true}

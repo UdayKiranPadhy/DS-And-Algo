@@ -64,7 +64,6 @@ n == stones.length
 
 """
 from itertools import accumulate
-import sys
 
 
 class Solution:
