@@ -50,5 +50,15 @@ def main():
     return max_profit_so_far
 
 
+def main2():
+    prices = [int(x) for x in input().split(" ")]
+    least_value_so_far = prices[0]
+    profit = 0
+    for i in range(len(prices)):
+        profit = max(profit, prices[i]-least_value_so_far)
+        least_value_so_far = min(least_value_so_far, prices[i])
+    return profit
+
+
 if __name__ == '__main__':
-    print(main())
+    print(main2())
