@@ -1,6 +1,6 @@
 {
     "files.autoSave": "afterDelay",
-    "python.pythonPath": "C:\\Users\\kiran\\AppData\\Local\\Programs\\Python\\Python39\\python.exe",
+    "python.pythonPath": "/bin/python3",
     "editor.formatOnSave": true,
     "files.associations": {
         "*.py": "python",
