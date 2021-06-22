@@ -13,6 +13,7 @@ Input :
 Output :
 1
 """
+
 class Solution:
     def colorful(self, A):
         A = str(A)

@@ -65,6 +65,10 @@ dp = [[None for i in range(sum + 1)] for i in range(n + 1)]
 print(SubsetSum2([3, 34, 4, 12, 5, 2], 5, 30))  # False
 
 
+import sys
+
+sys.setrecursionlimit(10**9)
+
 # Top-Down Approach
 def SubsetSum3(array, sum):
     m = len(array)

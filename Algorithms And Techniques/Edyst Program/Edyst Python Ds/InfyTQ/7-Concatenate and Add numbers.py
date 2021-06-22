@@ -23,6 +23,8 @@ num2 : 5148
 
 Output : 5248 + 20  = 5168
 """
+
+
 l=list(map(int,input().split(",")))
 i=0
 sum=0
