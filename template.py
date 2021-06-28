@@ -1,4 +1,8 @@
-import io, os, sys
+import math
+from sys import *
+import io
+import os
+import sys
 
 input = io.BytesIO(os.read(0, os.fstat(0).st_size)).readline
 # sys.setrecursionlimit()
@@ -13,17 +17,17 @@ coords = [int(x) for x in input().split()]
 directions = [x for x in input().split()]
 
 
-
-from sys import *
-import math
 #import queue
-input=stdin.readline
-I=int
-R=range
-listInput=lambda:list(map(int,input().strip().split()))
-lineInput= lambda:map(int,input().strip().split())
-sJoin=lambda a,sep : '{}'.format(sep).join(a)
-arrJoin=lambda a,sep : '{}'.format(sep).join(map(str,a))
+input = stdin.readline
+I = int
+R = range
+def listInput(): return list(map(int, input().strip().split()))
+def lineInput(): return map(int, input().strip().split())
+def sJoin(a, sep): return '{}'.format(sep).join(a)
+
+
+def arrJoin(a, sep): return '{}'.format(sep).join(map(str, a))
+
 
 inf = sys.maxsize
 mod = 10000007

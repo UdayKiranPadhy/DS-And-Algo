@@ -65,33 +65,38 @@ def display_board():
         print()
 
 
-# n = int(input())
-# board = [[0 for i in range(n)] for i in range(n)]
-# k = 0
-# iterator_column = [-1 for i in range(n)]
-# while k >= 0 and k <= n - 1:
-#     for i in range(iterator_column[k] + 1, len(board)):
-#         if (i == (len(board) - 1)) and (Can_Place(k, i) == False):
-#             iterator_column[k] = -1
-#             k -= 1
-#             board[k][iterator_column[k]] = 0
-#             break
-#         elif Can_Place(k, i):
-#             board[k][i] = "Q"
-#             iterator_column[k] = i
-#             k += 1
-#             break
-#     else:
-#         iterator_column[k] = -1
-#         k -= 1
-#         board[k][iterator_column[k]] = 0
-# display_board()
-
+n = int(input())
+board = [[0 for i in range(n)] for i in range(n)]
+k = 0
+iterator_column = [-1 for i in range(n)]
+while k >= 0 and k <= n - 1:
+    for i in range(iterator_column[k] + 1, len(board)):
+        if (i == (len(board) - 1)) and (Can_Place(k, i) == False):
+            iterator_column[k] = -1
+            k -= 1
+            board[k][iterator_column[k]] = 0
+            break
+        elif Can_Place(k, i):
+            board[k][i] = "Q"
+            iterator_column[k] = i
+            k += 1
+            break
+    else:
+        iterator_column[k] = -1
+        k -= 1
+        board[k][iterator_column[k]] = 0
+display_board()
 
 
 """
 Recursive Approach Of Back Tracking
 """
+
+
+# n = 7
+# board = [[0 for i in range(n)] for j in range(n)]
+# print(n_queens(col=0))
+# display_board()
 
 
 def n_queens(col):
@@ -104,9 +109,3 @@ def n_queens(col):
                 return True
             board[i][col] = 0
     return False
-
-
-# n = 7
-# board = [[0 for i in range(n)] for j in range(n)]
-# print(n_queens(col=0))
-# display_board()

@@ -91,29 +91,16 @@ def CanPlaceVertical(i, j, word):
     return True
 
 
-n = int(input())
-cross_word = [['+' for i in range(n)] for _ in range(n)]
-blanks = []
-for i in range(n):
-    blanks.append(input().split(","))
-row = 0
-for i in blanks:
-    while len(i) >= 1:
-        a = int(i.pop())
-        b = int(i.pop())
-        for it in range(b-1, a+b-1):
-            cross_word[row][it] = "*"
-    row += 1
-del blanks, a, b, row
-
-# Taking Words Input
-words = []
-m = int(input())
-for i in range(m):
-    words.append(input().strip())
-
-del m
-
+cross_word = [['*', '*', '+', '+', '+', '*', '*'],
+              ['*', '+', '+', '+', '+', '+', '+'],
+              ['+', '+', '+', '+', '+', '+', '+'],
+              ['+', '+', '+', '*', '+', '+', '+'],
+              ['+', '+', '+', '+', '+', '+', '+'],
+              ['+', '+', '+', '+', '+', '+', '*'],
+              ['*', '*', '+', '+', '+', '*', '*']]
+words = ['ART', 'EMIT', 'FRATBOY', 'FRO', 'JOE', 'LUI', 'OUTLETS', 'PASS',
+         'PHANTOM', 'POUCH', 'RON', 'SMOOTH', 'SUBJECT', 'THRUM', 'TROUPE', 'YES']
+n = len(cross_word)
 current = 1
 solution = {}
 
