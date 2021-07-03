@@ -38,9 +38,9 @@ Sample Input:
 1 1 1
 0 1 0
 
-output : 15  
+output : 21  
 Explainataiom: Use three bombs of the second type with each column total 
-cost = 7 * 3 = 15
+cost = 7 * 3 = 21
 
 
 3

@@ -42,17 +42,35 @@ ips = []
 
 
 def GenerateIPAdress(s: str):
-    N = len(s)
+    def CanPlace(s, index, last_dot):
+        gg = s[last_dot+1:index]
+        try:
+            gg = int(gg)
+            if gg >= 0 and gg <= 255:
+                return True
+            else:
+                return False
+        except:
+            return False
 
-    def backtrack(index, dot, string):
-        if dot == 0:
+    def Place(string, i):
+        return string[:i]+'.'+string[i:]
+
+    def Remove(string, i):
+        return string[:i] + string[i+1:]
+
+    def backtrack(index, dot, string, last_dot):
+        if dot == 0 and index <= len(string):
             ips.append(string)
             return
+        for i in range(index, len(string)):
+            if CanPlace(string, i, last_dot):
+                string = Place(string, i)
+                backtrack(i+1, dot-1, string, i+1)
+                string = Remove(string, i)
+        return
 
-        for i in range(index, N-1):
-            backtrack(i+1, dot-1, string[:i+1]+"."+string[i+1:])
-
-    backtrack(0, 4, s)
+    backtrack(0, 4, s, -1)
 
 
 s = '11211'
