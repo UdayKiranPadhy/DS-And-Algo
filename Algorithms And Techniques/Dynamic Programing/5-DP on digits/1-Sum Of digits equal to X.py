@@ -1,6 +1,7 @@
 """
 
-Given an integer Y and a range [L, R], the task is to find the count of all numbers from the given range whose sum of digits is equal to Y.
+Given an integer Y and a range [L, R], the task is to find the count of 
+all numbers from the given range whose sum of digits is equal to Y.
 Examples: 
  
 
@@ -45,6 +46,5 @@ def Count(num, n, sum, tight):
         Count(num, n + 1, sum + i, (tight and (i == upper_bound)))
         l.pop()
     return answer
-
 
 print(Count(15, 0, 0, 1))
