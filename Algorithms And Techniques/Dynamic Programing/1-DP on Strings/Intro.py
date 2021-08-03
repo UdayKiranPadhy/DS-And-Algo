@@ -1,4 +1,5 @@
-# I have been doing DP problem on strings for a while and found a pattern / template to solve it,
+# I have been doing DP problem on strings for a while and found 
+# a pattern / template to solve it,
 # Though it may vary from question to question
 
 # Templates for solving it.

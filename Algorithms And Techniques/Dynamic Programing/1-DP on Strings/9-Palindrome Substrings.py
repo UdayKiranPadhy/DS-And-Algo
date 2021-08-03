@@ -48,3 +48,33 @@ def PS(string):
 
 print(PS("aabaaca"))
 print(PS("aaa"))
+
+
+# Another Better method
+
+class Solution:
+    def countSubstrings(self, s: str) -> int:
+
+        count = 0
+        N = len(s)
+
+        for i in range(N):
+            low = i - 1
+            high = i + 1
+
+            # Count all the odd length Palindromes
+            while (low >= 0 and high < N and s[low] == s[high]):
+                low -= 1
+                high += 1
+                count += 1
+
+            # Count all the even length Palindromes
+            low = i
+            high = i+1
+            while(low >= 0 and high < N and s[low] == s[high]):
+                low -= 1
+                high += 1
+                count += 1
+
+        # return count + N since all single letter are also palindromes
+        return count + N
