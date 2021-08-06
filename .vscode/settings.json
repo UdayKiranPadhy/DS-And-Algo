@@ -5,5 +5,6 @@
     "files.associations": {
         "*.py": "python",
         "iostream": "cpp"
-    }
+    },
+    "python.formatting.provider": "yapf"
 }

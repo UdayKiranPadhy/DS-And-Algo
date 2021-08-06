@@ -1,34 +1,19 @@
-class Solution:
-    def trap(self, height: list[int]) -> int:
-        N = len(height)
+n = int(input())
 
-        def NGER(height):
-            stack = [-1] * N
-            maximum = -1
-            for i in range(N-1, -1, -1):
-                stack[i] = maximum
-                if height[i] > maximum:
-                    maximum = height[i]
-            return stack
+for row in range(n + 1):
+    for space in range(n - row):
+        print(" ", end="")
+    for alpha in range(n, n - row, -1):
+        print(chr(ord('`') + alpha), end="")
+    for alpha in range(n - row + 1, n):
+        print(chr(ord('`') + alpha + 1), end="")
+    print()
 
-        def NGEL(args):
-            stack = [-1] * N
-            maximum = -1
-            for i in range(N):
-                stack[i] = maximum
-                if height[i] > maximum:
-                    maximum = height[i]
-            return stack
-
-        right = NGER(height)
-        left = NGEL(height)
-        # print(right, left)
-        trap = 0
-        for i in range(1, N-1):
-            if right[i] > height[i] and left[i] > height[i]:
-                trap += (min(right[i], left[i]) - height[i])
-        return trap
-
-
-model = Solution()
-model.trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1])
+for row in range(1, n):
+    for space in range(row):
+        print(" ", end="")
+    for alpha in range(n, row, -1):
+        print(chr(ord('`') + alpha), end="")
+    for alpha in range(row, n - 1):
+        print(chr(ord('`') + alpha + 2), end="")
+    print()
