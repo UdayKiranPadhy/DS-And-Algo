@@ -1,0 +1,1 @@
+{"name":"Local: gg","url":"d:\\DS-And-Algo\\gg.py","tests":[{"id":1628403570695,"input":"4\n0\n1\n2\n3\n3\n1\n2\n0","output":"4"},{"id":1628404510790,"input":"5\n0\n1\n3\n4\n2\n3\n4\n1\n2\n0","output":"4"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DS-And-Algo\\gg.py","group":"local","local":true}

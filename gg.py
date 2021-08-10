@@ -1,13 +1,12 @@
-array = [1, 2, 3, 2, 5, 1, 2, 4, 6, 2, 7, 8, 6]
+class Solution:
+    def minCostClimbingStairs(self, cost: list[int]) -> int:
+        N=len(cost)
+        dp = [None] * N
+        dp[N-1] = cost[N-1]
+        dp[N-2] = cost[N-2]
+        for i in range(N-3,-1,-1):
+            dp[i] = min(cost[i]+dp[N-1],cost[i]+dp[N-2])
+        return dp[0]
 
-adj = {}
-
-max_distance = 0
-for i in range(len(array)):
-    if array[i] not in adj:
-        adj[array[i]] = i
-    else:
-        if i - adj[array[i]] > max_distance:
-            max_distance = i - adj[array[i]]
-
-print(max_distance)
+model = Solution()
+model.minCostClimbingStairs([10,15,20])
