@@ -1,0 +1,1 @@
+{"name":"Local: genc","url":"d:\\DS-And-Algo\\genc.py","tests":[{"id":1630216736763,"input":"abac","output":"8"},{"id":1630216754338,"input":"bcada","output":"12"},{"id":1630216768561,"input":"abcd","output":"10"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DS-And-Algo\\genc.py","group":"local","local":true}
