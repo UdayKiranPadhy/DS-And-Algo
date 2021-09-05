@@ -1,16 +1,11 @@
 """
 
 11. Container With Most Water
-Medium
 
-11274
-
-769
-
-Add to List
-
-Share
-Given n non-negative integers a1, a2, ..., an , where each represents a point at coordinate (i, ai). n vertical lines are drawn such that the two endpoints of the line i is at (i, ai) and (i, 0). Find two lines, which, together with the x-axis forms a container, such that the container contains the most water.
+Given n non-negative integers a1, a2, ..., an , where each represents a point at 
+coordinate (i, ai). n vertical lines are drawn such that the two endpoints of 
+the line i is at (i, ai) and (i, 0). Find two lines, which, together with the 
+x-axis forms a container, such that the container contains the most water.
 
 Notice that you may not slant the container.
 
@@ -47,37 +42,18 @@ n == height.length
 
 # Solution O(N^2)
 
+
 class Solution:
     def maxArea(self, height: list[int]) -> int:
         max_area = -1
         for i in range(len(height) - 1):
-            for j in range(i , len(height)):
-                area  = (j - i) * min(height[i],height[j])
-                max_area = max(max_area,area)
+            for j in range(i, len(height)):
+                area = (j - i) * min(height[i], height[j])
+                max_area = max(max_area, area)
         return max_area
 
 
-
-
-
-
-
-Sort = N logN
-
-N^2
-
-10^5
-
-
-
-
-
-
-
-
-
-
-
+# Two pointer Approach
 class Solution:
     def maxArea(self, height: list[int]) -> int:
         max_water = -1
@@ -87,11 +63,11 @@ class Solution:
 
         while low < high:
             width = high - low
-            area = width * min(height[low],height[high])
+            area = width * min(height[low], height[high])
 
-            max_water = max(max_water,area)
+            max_water = max(max_water, area)
 
-            if height[low]>height[high]:
+            if height[low] > height[high]:
                 high -= 1
             else:
                 low += 1
