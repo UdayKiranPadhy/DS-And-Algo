@@ -1,32 +1,19 @@
-class Solution:
-    def longestPalindrome(self, s: str) -> str:
-        max_length = 1
-        max_palin = s[0]
-        for i in range(len(s)):
-            low = i - 1
-            high = i + 1
-            length = 1
-            if low >= 0 and high < len(s) and s[low] == s[high]:
-                length += 2
-                if length > max_length:
-                    max_length = length
-                    max_palin = s[low:high+1]
-                low -= 1
-                high += 1
-            
-            low = i 
-            high = i + 1
-            length = 0
-            if low >= 0 and high < len(s) and s[low] == s[high]:
-                length += 2
-                if length > max_length:
-                    max_length = length
-                    max_palin = s[low:high+1]
-                low -= 1
-                high += 1
-        return max_palin
+from functools import lru_cache
 
 
-model = Solution()
-gg = input()
-print(model.longestPalindrome(gg))
+def CollectMoney(input1,input2):
+
+    # Code By akash
+    @lru_cache(None)
+    def move(i,j):
+        if i<0 or i>= input1 or j <0 or j>= input1:
+            return -99999999
+        if i==input1-1 and j==input1-1:
+            return input2[i][j]
+        return input2[i][j] + max(move(i+1,j),move(i,j+1))
+    
+    return move(0,0)
+
+input1 = 4
+input2 = [[1,1,1,1],[1,1,1,1],[1,1,1,1],[1,1,1,1]]
+print(CollectMoney(input1,input2))
