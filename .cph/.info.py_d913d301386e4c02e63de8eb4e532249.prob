@@ -1,1 +1,0 @@
-{"name":"Local: info","url":"d:\\DS-And-Algo\\info.py","tests":[{"id":1628493091888,"input":"4\n1\n2\n3\n4","output":"8"},{"id":1628493557809,"input":"2\n1\n2","output":"0"},{"id":1628493573292,"input":"5\n1\n3\n1\n1\n4","output":"6"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\DS-And-Algo\\info.py","group":"local","local":true}
