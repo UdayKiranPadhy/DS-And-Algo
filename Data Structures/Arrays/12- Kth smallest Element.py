@@ -52,7 +52,8 @@ Topic Tags
 # time complexity is n.K
 
 # 3)Using Heap sort :
-# Take a heap of size k and keep updating its head until the list ends and then return the head of the heap.
+# Take a heap of size k and keep updating its head until the list ends and then return the 
+# head of the heap.
 # time complexity nlogk
 
 # 4)Using partation of quick sort at k index.
