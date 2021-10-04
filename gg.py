@@ -1,3 +1,4 @@
-from collections import Counter
+import typing
 
-help(Counter)
+
+help(typing)
