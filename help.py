@@ -1,0 +1,2 @@
+import heapq
+help(heapq)
