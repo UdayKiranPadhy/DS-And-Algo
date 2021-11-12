@@ -75,3 +75,16 @@ class Solution:
 # Time Complexity is O(N^2)
 
 # Better Solution is Greedy Solution O(n)
+
+
+class Solution:
+    def jump(self, nums):
+        farthest = 0
+        current = 0
+        jumps = 0
+        for i in range(len(nums)-1):
+            farthest = max(farthest, i + nums[i])
+            if i == current:
+                current = farthest
+                jumps += 1
+        return jumps
