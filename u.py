@@ -1,35 +1,36 @@
-def helper(i,j,a:str,b:str):
-    if i == len(a) and j== len(b):
-        return True
-    elif j == len(b):
-        for letter in a[i:]:
-            if letter.isupper():
-                return False
-        return True
-    elif i == len(a):
-        return False
-    elif a[i].isupper() and a[i] != b[j]:
-        return False
-    elif a[i].isupper() and a[i] == b[j]:
-        return helper(i+1,j+1,a,b)
-    elif a[i].islower() and a[i].upper() == b[j]:
-        # Increment both the pointers case considering we have captilized the a pointer
-        op1 = helper(i+1,j+1,a,b) 
-
-        # Increment the a str pointer hoping there is a captial b[j] in A later
-        op2 = helper(i+1,j,a,b)
-
-        return op1 or op2
-    elif a[i].islower() and a[i].upper() != b[j]:
-        return helper(i+1,j,a,b)
-    
-    
+from collections import deque
 
 
-def abbreviation(a, b):
-    
-    if helper(0,0,a,b):
-        return "YES"
-    return "NO"
-
-print(abbreviation("beFgH","EFH"))
+for t in range(int(input())):
+    n , m = [int(x) for x in input().strip().split(" ")]
+    graph = {}
+    for i in range(1,n+1):
+        graph[i] = []
+    edges = []
+    for i in range(m):
+        edges.append([int(x) for x in input().strip().split(" ")])
+    source = int(input())
+    for start,end in edges:
+        graph[start].append(end)
+    distances = [99999 for _ in range(n+1)]
+    stack = deque([-1,source])
+    level = 1
+    while stack:
+        present_node = stack.pop()
+        if present_node == -1:
+            level += 1
+            if len(stack) !=0:
+                stack.appendleft(-1)
+        else:
+            for child in graph[present_node]:
+                stack.appendleft(child)
+                distances[child] = min(distances[child],level*6)
+    result =[]
+    for i in range(1,n+1):
+        if i == source:
+            continue
+        elif distances[i]==99999:
+            result.append(-1)
+        else:
+            result.append(distances[i])
+    print(result)
