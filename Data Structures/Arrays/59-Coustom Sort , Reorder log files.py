@@ -42,6 +42,8 @@ logs[i] is guaranteed to have an identifier and at least one word after the iden
 
 """
 
+# https://www.youtube.com/watch?v=5Y2EiZST97Y&ab_channel=NeetCode
+
 from typing import List
 
 
