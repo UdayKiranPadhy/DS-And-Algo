@@ -1,5 +1,5 @@
 """
-Count Inversions in an array | Set 1 (Using Merge Sort)
+versions in an array | Set 1 (Using Merge Sort)
  
 Inversion Count for an array indicates – how far (or close) the array is from being 
 sorted. If array is already sorted then inversion count is 0. If array is sorted in 

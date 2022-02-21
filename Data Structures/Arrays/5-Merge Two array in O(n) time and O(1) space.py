@@ -83,7 +83,8 @@ print(arr2)
 How to solve this question in O(1) space.
 
 Ever heard of Shell Sort..??? If not, first go through this - https://www.geeksforgeeks.org/shellsort/
-We need to use a modification of shell sort over 2 sorted arrays, such that one array is just behind second array.
+We need to use a modification of shell sort over 2 sorted arrays, such that one 
+array is just behind second array.
 
 Now how to do that..???
 """
