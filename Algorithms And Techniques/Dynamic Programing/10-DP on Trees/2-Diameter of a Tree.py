@@ -1,12 +1,12 @@
 """
-Link :- https://leetcode.com/problems/diameter-of-binary-tree/
+Link :- https://leetcode.com/problems/-of-binary-tree/
 Date :- 19/06/2021
 
-543. Diameter of Binary Tree
+543.  of Binary Tree
 
-Given the root of a binary tree, return the length of the diameter of the tree.
+Given the root of a binary tree, return the length of the  of the tree.
 
-The diameter of a binary tree is the length of the longest path between any two 
+The  of a binary tree is the length of the longest path between any two 
 nodes in a tree. This path may or may not pass through the root.
 
 The length of a path between two nodes is represented by the number of edges 
@@ -36,16 +36,16 @@ The number of nodes in the tree is in the range [1, 10^4].
 Solution approach
 
 There are three cases 
-case 1 :- The Diameter may completely lie on the left sub tree
-case 2 :- The Diameter may completely lie on the right sub tree
-case 3 :- The Diameter may pass through the root of the tree.
+case 1 :- The  may completely lie on the left sub tree
+case 2 :- The  may completely lie on the right sub tree
+case 3 :- The  may pass through the root of the tree.
 so we have to see for all the probable cases here.
 Approach: we are going to use recursion
 h1 = calculate the height of the left sub tree.
 h2 = calculate the height of the right sub tree.
-op1 = h1+h2(as discussed the diameter may paas through the root.)
-op2 = diameter(root->left)// recursively.
-op3 = diameter(root->right) //recursively.
+op1 = h1+h2(as discussed the  may paas through the root.)
+op2 = (root->left)// recursively.
+op3 = (root->right) //recursively.
 return max of op1,op2,op3;
 
 """
@@ -60,7 +60,7 @@ class TreeNode:
 
 
 class Solution:
-    def diameterOfBinaryTree(self, root: TreeNode) -> int:
+    def OfBinaryTree(self, root: TreeNode) -> int:
 
         def height(root: TreeNode):
             if root == None:
@@ -80,3 +80,21 @@ class Solution:
             return max(op1, op2, op3)
 
         return FindBinary(root)
+
+
+# Optimal Approach
+class Solution:
+    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        self.maximum = -1
+
+        def height(root):
+
+            if root == None:
+                return 0
+            lr = height(root.left)
+            ri = height(root.right)
+            self.maximum = max(self.maximum, lr + ri)
+
+            return 1 + max(lr, ri)
+        height(root)
+        return self.maximum

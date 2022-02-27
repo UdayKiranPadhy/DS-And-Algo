@@ -1,3 +1,3 @@
 class Solution(object):
-    def inorderTraversal(self, root):
-        return (self.inorderTraversal(root.left) + [root.val] + self.inorderTraversal(root.right)) if root else []
+    def Traversal(self, root):
+        return (self.Traversal(root.left) + [root.val] + self.Traversal(root.right)) if root else []

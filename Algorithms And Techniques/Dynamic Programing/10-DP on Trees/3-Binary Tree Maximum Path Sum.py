@@ -32,53 +32,68 @@ Constraints:
 The number of nodes in the tree is in the range [1, 3 * 104].
 -1000 <= Node.val <= 1000
 
-
+All cases 
+[1,2,3]
+[-10,9,20,null,null,15,7]
+[-3]
+[1,-2,3]
+[-1,-2,10,-6,null,-3,-6]
+[9,6,-3,null,null,-6,2,null,null,2,null,-6,-6,-6]
 
 """
 
 
-# My trails 
+# My trails
 # Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
+import sys
+from typing import Optional
+
+
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+
 class Solution:
-    def maxPathSum(self, root: TreeNode) -> int:
+    def thSum(self, root: TreeNode) -> int:
         result = -sys.maxsize
-        
+
         def dfs(root):
             nonlocal result
-            if root==None:
+            if root == None:
                 return 0
             l = dfs(root.left)
             r = dfs(root.right)
-            
-            op1 = max( max(l,r,0) + root.val , root.val )
-            op2 = max( op1 , l + r + root.val,l,r )
+
+            op1 = max(max(l, r, 0) + root.val, root.val)
+            op2 = max(op1, l + r + root.val, l, r)
             return op2
-        
+
         return dfs(root)
 
 
-
 # Original Answer
+# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
 
 class Solution:
-    def maxPathSum(self, root: TreeNode) -> int:
-        ans = [float("-inf")]
-        def search(node, curr_max):
-            if not node:
+    def maxPathSum(self, root: Optional[TreeNode]) -> int:
+        self.maximum = root.val
+
+        def maxi(root):
+            if root == None:
                 return 0
-            left_max = search(node.left, curr_max)
-            right_max = search(node.right,curr_max)
-
-            single_max = max(0,left_max, right_max)+node.val # case1 and case 2
-            double_max = max(single_max, left_max+right_max+node.val) # case 3
-
-            ans[0] = max(ans[0], single_max, double_max)
-            # remember to return the value of case 1 and case 2, since if we go up, current node can't be the "root" node
-            return single_max 
-        search(root, 0)
-        return ans[0]
+            lr = maxi(root.left)
+            ri = maxi(root.right)
+            self.maximum = max(self.maximum, root.val + lr +
+                               ri, root.val + lr, root.val + ri, root.val)
+            return max(root.val + max(lr, ri), root.val)
+        maxi(root)
+        return self.maximum

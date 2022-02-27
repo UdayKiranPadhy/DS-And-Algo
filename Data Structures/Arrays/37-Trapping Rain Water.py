@@ -1,6 +1,6 @@
 """
 
-42. Trapping ter
+42. Trapping water
 Hard
 
 Given n non-negative integers representing an elevation map where the width of 
@@ -59,3 +59,10 @@ class Solution:
             water[i] = min(leftmax[i], rightmax[i]) - height[i]
 
         return sum(water)
+
+
+# Method - 2
+# Stack 
+# [0,1,0,2,1,0,1,3,2,1,2,1]
+# [4,2,0,3,2,5]
+  
