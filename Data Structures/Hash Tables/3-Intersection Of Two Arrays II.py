@@ -1,6 +1,6 @@
 """
 
-350. Intersection of Two Arrays II
+350. of Two Arrays II
 Easy
 
 3061
@@ -47,7 +47,7 @@ Tags :
 # https://leetcode.com/problems/intersection-of-two-arrays-ii/
 
 # Solution
-# Similar to problem 0349 Intersection Of two arrays, but here we can use hash-table
+# Similar to problem 0349 Of two arrays, but here we can use hash-table
 # with number of occurrences or in python we can use Counter function. If our data is
 # sorted, we can use two pointers approach, complexity will be O(m+n) and with
 # additional O(1) memory, if we do not consider answer as memory. If one of arrays
