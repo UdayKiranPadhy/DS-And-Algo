@@ -97,9 +97,9 @@ Space Complexity: O(1).
 As no extra space is required.
 """
 
-"""
-Efficient Solution:
 
+# Efficient Solution:
+"""
 Approach: The idea is to consider all events in sorted order. 
 Once the events are in sorted order, trace the number of trains at any time 
 keeping track of trains that have arrived, but not departed.

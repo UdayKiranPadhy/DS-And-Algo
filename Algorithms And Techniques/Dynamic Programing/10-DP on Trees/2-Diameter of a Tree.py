@@ -17,7 +17,7 @@ Example 1:
 
 Input: root = [1,2,3,4,5]
 Output: 3
-Explanation: 3is the length of the path [4,2,1,3] or [5,2,1,3].
+Explanation: 3 is the length of the path [4,2,1,3] or [5,2,1,3].
 Example 2:
 
 Input: root = [1,2]
@@ -36,9 +36,9 @@ The number of nodes in the tree is in the range [1, 10^4].
 Solution approach
 
 There are three cases 
-case 1 :- The  may completely lie on the left sub tree
-case 2 :- The  may completely lie on the right sub tree
-case 3 :- The  may pass through the root of the tree.
+case 1 :- The diameter may completely lie on the left sub tree
+case 2 :- The diameter may completely lie on the right sub tree
+case 3 :- The diameter may pass through the root of the tree.
 so we have to see for all the probable cases here.
 Approach: we are going to use recursion
 h1 = calculate the height of the left sub tree.

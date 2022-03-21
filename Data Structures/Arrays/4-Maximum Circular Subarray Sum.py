@@ -52,9 +52,6 @@ def circularSubarraySum(arr, n):
 
 
 
-M6,402,403
-
-
 def kadanes(array):
     curr_sum = 0
     max_sum = -99999999999

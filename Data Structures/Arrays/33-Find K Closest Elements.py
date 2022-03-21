@@ -2,7 +2,9 @@
 Date :- 2 July 2021
 Source :- Leetcode
 
-Given a sorted integer array arr, two integers k and x, return the k closest integers to x in the array. The result should also be sorted in ascending order.
+Given a sorted integer array arr, two integers k and x, return 
+the k closest integers to x in the array. The result should also 
+be sorted in ascending order.
 
 An integer a is closer to x than an integer b if:
 
@@ -59,7 +61,8 @@ Space Complexity : O(1) only constant space is required (ignoring the space used
 # Solution Approach 2
 # 2-Pointers
 """
-We can initialize two pointers L=0 and R=n-1. Now our window size is n and contains excess elements. 
+We can initialize two pointers L=0 and R=n-1. Now our window size is n and 
+contains excess elements. 
 We will keep reducing the [L, R] window size till it becomes exactly equal to k. 
 We can do this based on the condition - x - arr[L] <= arr[R] - x. 
 If it is true, then it means arr[R] is farther away from x than arr[L] and thus we 

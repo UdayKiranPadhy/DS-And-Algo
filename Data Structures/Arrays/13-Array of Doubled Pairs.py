@@ -43,7 +43,8 @@ arr.length is even.
 """
 My Solution
 
-Sort the array and then for every element x in the array do a Binary Search for 2*x in the array.
+Sort the array and then for every element x in the array do a Binary Search for 2*x in the 
+array.
 """
 
 # Fails with out Binary Search for last and large inputs

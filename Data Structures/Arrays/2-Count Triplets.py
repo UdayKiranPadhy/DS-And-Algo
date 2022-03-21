@@ -38,15 +38,17 @@ Topic Tags
  Sorting Two-pointer-algorithm
 """
 
-# My Trail :- Really Fucked up my self when seeing the solution not getting accepted
+# My Trail :- Really fed up my self when seeing the solution not getting accepted
+
+
 class Solution:
-	def countTriplet(self, arr, n):
-	    count=0
-		for i in range(len(arr)):
-			for j in range(i+1,len(arr)):
-		        if (arr[i] + arr[j]) in arr:
-		            count+=1
-		return count
+    def countTriplet(self, arr, n):
+        count = 0
+        for i in range(len(arr)):
+            for j in range(i+1, len(arr)):
+                if (arr[i] + arr[j]) in arr:
+                    count += 1
+        return count
 
 
 # Correct Answer

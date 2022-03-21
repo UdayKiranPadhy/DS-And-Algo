@@ -14,13 +14,11 @@ Examples:
 Input: range : 1
        house : 1 2 3 4 5
 Output: 2
+All cities can be covered by inserting 2 towers i.e. at houses 2 and 4.
 
 Input: range : 2
        house : 7 2 4 6 5 9 12 11 
 Output: 3
-
-All cities can be covered by inserting 2 towers i.e. at houses 2 and 4.
-
 
 All cities can be covered by inserting 3 towers i.e. at house 4, 9, and 12.
 Algorithm:- 
@@ -34,27 +32,16 @@ Below is the implementation of above approach:
 
 """
 
-
-# Python 3 implementation of
-# above approach
-
-# Function to count the
-# number of tower
 def number_of_tower(house, r, n):
-
     # first we sort the house numbers
     house.sort()
-
     # for count number of twoers
     numOfTower = 0
-
     # for iterate all houses
     i = 0
     while (i < n):
-
         # count number of towers
         numOfTower += 1
-
         # find find the middle location
         loc = house[i] + r
 
@@ -88,6 +75,3 @@ if __name__ == "__main__":
 
     # print number of towers
     print(number_of_tower(house, r, n))
-
-# This code is contributed
-# by ChitraNayal

@@ -28,30 +28,3 @@ assuming that a person can only work on a single activity at a time.
 # 3) Do following for remaining activities in the sorted array.
 # …….a) If the start time of this activity is greater than or equal to the finish time of
 #     previously selected activity then select this activity and print it.
-
-
-t = int(input())
-list1 = []
-while t:
-    list1.append(int(input()))
-    t -= 1
-for n in list1:
-    f1 = 0
-    f2 = 1
-    if n == 1:
-        print(f1)
-        continue
-    if n == 2:
-        print(f1, end=" ")
-        print(f2)
-        continue
-    print(f1, end=" ")
-    print(f2, end=" ")
-    n = n - 2
-    while n:
-        f3 = f1 + f2
-        f1 = f2
-        f2 = f3
-        print(f3, end=" ")
-        n -= 1
-    print()

@@ -97,7 +97,7 @@ Tricky and Efficient Approach
 
 
 # Solution
-"""
+
 def equilibriumPoint(A, N):
 
     #We store the sum of all array elements.
@@ -122,7 +122,7 @@ def equilibriumPoint(A, N):
         sum2 += A[i]
         
     return -1
-"""
+
 
 
 
