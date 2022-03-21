@@ -3,14 +3,8 @@
 45. Jump Game II
 Medium
 
-5570
-
-216
-
-Add to List
-
-Share
-Given an array of non-negative integers nums, you are initially positioned at the first index of the array.
+Given an array of non-negative integers nums, you are initially positioned at the 
+first index of the array.
 
 Each element in the array represents your maximum jump length at that position.
 

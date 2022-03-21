@@ -3,8 +3,10 @@ Date :- 29/06/21
 Soucre :- Geeks For Geeks
 
 Generate IP Addresses 
-Medium Accuracy: 43.42% Submissions: 11618 Points: 4
-Given a string S containing only digits, Your task is to complete the function genIp() which returns a vector containing all possible combination of valid IPv4 ip address and takes only a string S as its only argument.
+
+Given a string S containing only digits, Your task is to complete the function genIp() 
+which returns a vector containing all possible combination of valid IPv4 ip address and 
+takes only a string S as its only argument.
 Note : Order doesn't matter.
 
 For string 11211 the ip address possible are 
@@ -21,7 +23,8 @@ Output: 1.1.1.1
 
 Your Task:
 
-Your task is to complete the function genIp() which returns a vector containing all possible combination of valid IPv4 ip address in sorted order and takes only a string S as its only argument.
+Your task is to complete the function genIp() which returns a vector containing all possible combination of valid IPv4 
+ip address in sorted order and takes only a string S as its only argument.
 
 Expected Time Complexity: O(N * N * N * N)
 Expected Auxiliary Space: O(N * N * N * N)

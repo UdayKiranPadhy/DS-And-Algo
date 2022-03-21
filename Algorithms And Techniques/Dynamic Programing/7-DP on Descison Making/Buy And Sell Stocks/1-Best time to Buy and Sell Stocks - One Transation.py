@@ -6,9 +6,11 @@ Problem Statement : https://leetcode.com/problems/best-time-to-buy-and-sell-/
 Easy
 You are given an array prices where prices[i] is the price of a given  on the ith day.
 
-You want to maximize your profit by choosing a single day to buy one  and choosing a different day in the future to sell that .
+You want to maximize your profit by choosing a single day to buy one  and choosing a 
+different day in the future to sell that .
 
-Return the maximum profit you can achieve from this transaction. If you cannot achieve any profit, return 0.
+Return the maximum profit you can achieve from this transaction. If you cannot achieve 
+any profit, return 0.
 
  
 
@@ -35,19 +37,6 @@ Constraints:
 
 # Solution Explanatation :- https://www.youtube.com/watch?v=4YjEHmw1MX0&list=PL-Jc9J83PIiG8fE6rj9F5a6uyQ5WPdqKy&index=30&ab_channel=Pepcoding
 # https://www.youtube.com/watch?v=eMSfBgbiEjk&ab_channel=takeUforward
-
-def main():
-    listInput = [int(x) for x in input().split(" ")]
-    least_value_index_so_far = 0
-    max_profit_so_far = 0
-
-    for i in range(1, len(listInput)):
-        if listInput[i] < listInput[least_value_index_so_far]:
-            least_value_index_so_far = i
-        else:
-            max_profit_so_far = max(
-                max_profit_so_far, listInput[i]-listInput[least_value_index_so_far])
-    return max_profit_so_far
 
 
 def main2():

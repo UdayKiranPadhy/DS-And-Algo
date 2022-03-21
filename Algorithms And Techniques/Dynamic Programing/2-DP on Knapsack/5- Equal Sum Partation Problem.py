@@ -14,7 +14,8 @@ Output: false
 The array cannot be partitioned into equal sum sets.
 """
 
-# Just same problem as Subset sum problem, we need to find a subset of sum equal to total sum of the array.
+# Just same problem as Subset sum problem, we need to find a subset of sum equal to 
+# total sum of the array.
 def SubsetSum(array, sum):
     m = len(array)
     dp = [[0 for i in range(sum + 1)] for j in range(m + 1)]

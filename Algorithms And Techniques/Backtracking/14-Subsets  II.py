@@ -3,16 +3,13 @@
 90. Subsets II
 Medium
 
-4602
+https://leetcode.com/problems/subsets-ii/
 
-142
+Given an integer array nums that may contain duplicates, 
+return all possible subsets (the power set).
 
-Add to List
-
-Share
-Given an integer array nums that may contain duplicates, return all possible subsets (the power set).
-
-The solution set must not contain duplicate subsets. Return the solution in any order.
+The solution set must not contain duplicate subsets. 
+Return the solution in any order.
 
  
 
@@ -36,6 +33,12 @@ Constraints:
 
 # Input: nums = [1,2,2]
 # Output: [[],[1],[1,2],[1,2,2],[2],[2,2]]
+
+
+# Complexity
+# Not very tight bound for time complexity is O(2^n*n), where n is total number
+# of elements, space complexity as well. In fact complexity (time and space)
+# is O((a1+1)*...*(ak+1)*n), where a1, ..., ak are frequencies of each element.
 
 
 from typing import List

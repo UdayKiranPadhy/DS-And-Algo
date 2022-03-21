@@ -57,6 +57,7 @@ Constraints:
 
 # Peak Valley Approach
 
+# Too complex go down for next solution.
 
 def main():
     prices = [int(x) for x in input().split(" ")]

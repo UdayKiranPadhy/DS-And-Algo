@@ -2,7 +2,13 @@
 Date :- 4/7/21
 Source :- Leetcode
 
-Given an integer n, your task is to count how many strings of length n can be formed under the following rules:
+
+1220. Count Vowels Permutation
+
+https://leetcode.com/problems/count-vowels-permutation/
+
+Given an integer n, your task is to count how many strings of length n can 
+be formed under the following rules:
 
 Each character is a lower case vowel ('a', 'e', 'i', 'o', 'u')
 Each vowel 'a' may only be followed by an 'e'.

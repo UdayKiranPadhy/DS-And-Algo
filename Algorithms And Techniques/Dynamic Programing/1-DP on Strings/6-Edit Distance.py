@@ -143,6 +143,7 @@ def editDistance2(string1, string2, m, n):
             return n
         elif n == 0:
             dp[m][n] = m
+            return m
         elif string1[m] == string2[n]:
             dp[m][n] = editDistance2(string1, string2, m - 1, n - 1)
             return dp[m][n]

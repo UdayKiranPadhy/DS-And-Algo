@@ -1,6 +1,7 @@
 """
 Bit Difference 
-You are given two numbers A and B. The task is to count the number of bits needed to be flipped to convert A to B.
+You are given two numbers A and B. The task is to count the number of bits 
+needed to be flipped to convert A to B.
 
 Example 1:
 Input: A = 10, B = 20

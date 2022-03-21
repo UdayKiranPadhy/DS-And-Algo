@@ -1,4 +1,6 @@
 """
+# Dont read in revision.
+
 Date:- 3/07/21
 Source Leetcode
 https://leetcode.com/problems/gray-code/

@@ -2,7 +2,7 @@
 Problem Statement : https://practice.geeksforgeeks.org/problems/find-first-set-bit-1587115620/1#
 
 Find first set bit 
-Easy Accuracy: 52.49% Submissions: 22040 Points: 2
+
 Given an integer an N. The task is to return the position of first set bit found from the right side in the binary representation of the number.
 Note: If there is no set bit in the integer N, then return 0 from the function.  
 

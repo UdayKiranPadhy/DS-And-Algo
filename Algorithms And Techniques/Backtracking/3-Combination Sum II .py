@@ -3,14 +3,8 @@
 40. Combination Sum II
 Medium
 
-3515
-
-101
-
-Add to List
-
-Share
-Given a collection of candidate numbers (candidates) and a target number (target), find all unique combinations in candidates where the candidate numbers sum to target.
+Given a collection of candidate numbers (candidates) and a target number (target), 
+find all unique combinations in candidates where the candidate numbers sum to target.
 
 Each number in candidates may only be used once in the combination.
 
@@ -46,6 +40,19 @@ Constraints:
 
 """
 
+
+# Problem statement
+# https://leetcode.com/problems/combination-sum-ii/
+
+# Solution 1
+# Quite similar to previous problem, backtracking. The difference here is that we 
+# need to sort numbers first and then when we iterate, skip some numbers, for example 
+# if we have [1, 1, 2, 2, 2, 2, 3, 3, 4, 4, 4] and we take second 2, then what we 
+# can take next is either next 2 or first 3 or first 4. Actually what we have here 
+# is Knapsack problem, where we need to find all solutions.
+
+# Complexity
+# Potential complexity is O(2^n), total number of solutions.
 
 class Solution:
     def combinationSum2(self, candidates: list[int], target: int) -> list[list[int]]:
