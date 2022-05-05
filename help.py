@@ -1,22 +1,15 @@
-from typing import List
+from functools import lru_cache
 
-from numpy import take
+class UserMainCode(object):
+    @classmethod
+    def arrangements(cls,input1):
 
-
-class Solution:
-    def minSessions(self, tasks: List[int], sessionTime: int) -> int:
-        tasks.sort()
-        i = 0
-        j = len(tasks) - 1
-        ans =0
-        while i <= j:
-            current = 0
-            while i <= j and  current + tasks[i] + tasks[j] <= sessionTime:
-                current+= tasks[i] + tasks[j]
-                i+=1
-                j-=1
-            while i<=j and current + tasks[j] <= sessionTime:
-                current += tasks[j]
-                j-=1
-            ans +=1
-        return ans
+        @lru_cache(None)
+        def count(number):
+            if number == 1:
+                return 0
+            if number == 2:
+                return 1
+            return (number-1)* (count(number-1) + count(number-2))
+        
+        return count(input1)
