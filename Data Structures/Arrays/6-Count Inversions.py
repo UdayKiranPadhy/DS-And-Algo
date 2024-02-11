@@ -41,6 +41,7 @@ Company Tags
 Topic Tags
  Arrays Sorting Divide and Conquer
 """
+from typing import List
 
 # HInt 1
 """
@@ -71,152 +72,53 @@ Finally output counter variable. This is the answer.
 # Counting Inversions but not n^2 it is need to done with nlogn complexity so its a modified merge sort
 
 
-inversion_count = 0  # global variable to count total inversions
+def merge(arr: List[int], low: int, mid: int, high: int) -> int:
+    temp = []  # temporary array
+    left = low  # starting index of left half of arr
+    right = mid + 1  # starting index of right half of arr
 
+    cnt = 0  # Modification 1: cnt variable to count the pairs
 
-def inversionCount(a, n):
-    global inversion_count
-    inversion_count = 0
-    merge_sort(a, 0, n - 1)
-    return inversion_count
-
-
-# merger of two halves .. counting inversion at each step
-def merge(a, start, mid, end):
-    global inversion_count
-    temp = [0 for i in range(end - start + 1)]
-    i, j, k = start, mid + 1, 0  # indexes of left,right and temp arrays
-
-    # merge while conditions are valid
-    while i <= mid and j <= end:
-
-        # compare the elements and merge
-        if a[i] <= a[j]:
-            temp[k] = a[i]
-            k += 1
-            i += 1
+    # storing elements in the temporary array in a sorted manner
+    while left <= mid and right <= high:
+        if arr[left] <= arr[right]:
+            temp.append(arr[left])
+            left += 1
         else:
-            temp[k] = a[j]
-            k += 1
-            j += 1
-            inversion_count += (
-                mid - i + 1
-            )  # inversion occurs here as right moved ahead of left
+            temp.append(arr[right])
+            cnt += (mid - left + 1)  # Modification 2
+            right += 1
 
-    # storing the rest elements
-    while i <= mid:
-        temp[k] = a[i]
-        k += 1
-        i += 1
+    # if elements on the left half are still left
+    while left <= mid:
+        temp.append(arr[left])
+        left += 1
 
-    # storing the rest elements
-    while j <= end:
-        temp[k] = a[j]
-        k += 1
-        j += 1
+    # if elements on the right half are still left
+    while right <= high:
+        temp.append(arr[right])
+        right += 1
 
-    for i in range(start, end + 1):
-        a[i] = temp[i - start]
+    # transfering all elements from temporary to arr
+    for i in range(low, high + 1):
+        arr[i] = temp[i - low]
+
+    return cnt  # Modification 3
 
 
-# merge utility
-def merge_sort(a, start, end):
-    if start < end:
-        mid = (start + end) // 2
-        merge_sort(a, start, mid)
-        merge_sort(a, mid + 1, end)
-        merge(a, start, mid, end)
+def mergeSort(arr: List[int], low: int, high: int) -> int:
+    cnt = 0
+    if low >= high:
+        return cnt
+    mid = math.floor((low + high) / 2)
+    cnt += mergeSort(arr, low, mid)  # left half
+    cnt += mergeSort(arr, mid + 1, high)  # right half
+    cnt += merge(arr, low, mid, high)  # merging sorted halves
+    return cnt
 
-# C++
-"""
-long long my_counter = 0;
 
-// Function to merge two parts of array
-// p: initial point in the array, say left index
-// q: mid point
-// r: higher range
-void merge(long long a[], long long p, long long q, long long r){
-    long long l = q-p+1;
-    long long a1[l];
-
-    long long l2 = r-q;
-    
-    long long a2[l2];
-    
-    // storing elements on left half from a to a1
-    for(long long i = 0;i<l;i++){
-        a1[i] = a[i+p];
-    }
-    
-    // storing elements on right half from a to a2
-    for(long long i = 0;i<l2;i++){
-        a2[i] = a[q+i+1];
-    }
-    
-    long long left = 0, right = 0, k = p;
-    
-    // merge while indexes are valid
-    while(left < l && right < l2)
-    {
-        // comparing element of a1 and a2
-        // and accordingly storing in a
-        if(a1[left] <= a2[right]){
-            a[k] = a1[left];
-            left++;
-        }
-        else{
-            a[k] = a2[right];
-            right++;
-            
-            // add the inversions that cross between 
-            // the first half and second half
-            my_counter += (l-left); // Increementing counter
-        }
-        k++;
-    }
-    
-    // store the rest elements
-    while(left < l){
-        a[k++] = a1[left++];
-      
-    }
-    
-    // store the rest elements 
-    while(right < l2){
-        
-        a[k++] = a2[right++];
-    }
-}
-
-// Function to mergesort a[], which use 
-// divide and conquer for left and right mergesort
-// operation
-void mergeSort(long long a[], long long p, long long r)
-{
-    
-    if(p < r)
-    {
-        // mid
-        long long q = (p+r)/2;
-        
-        // calling for left half
-        mergeSort(a, p, q);
-        
-        // calling for right half
-        mergeSort(a, q+1, r);
-        
-        // after sorting, need to call merge funtion
-        merge(a, p, q, r);
-    }
-}
-
-// base function which calls the other utility function
-// to find the number of inversions
-long long int inversionCount(long long arr[],long long N)
-{
-    mergeSort(arr,0,N-1);
-    long long int res = my_counter;
-    my_counter = 0;
-    return res;
-}
-"""
+def numberOfInversions(a: List[int], n: int) -> int:
+    # Count the number of pairs:
+    n = len(a)
+    # Count the number of pairs:
+    return mergeSort(a, 0, n - 1)

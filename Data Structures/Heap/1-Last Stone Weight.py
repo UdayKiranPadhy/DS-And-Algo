@@ -47,7 +47,7 @@ from heapq import heapify, heappush, heappop
 
 
 class Solution:
-    def lastStoneWeight(self, stones: list[int]) -> int:
+    def lastStoneWeight(self, stones: list[int]) -> (int, int):
 
         # Preprocessing of the list in order to use min heap
         stones = [-s for s in stones]

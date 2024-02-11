@@ -82,3 +82,8 @@ class Solution:
                 current = farthest
                 jumps += 1
         return jumps
+
+
+
+# Same Question https://www.geeksforgeeks.org/problems/minimum-number-of-jumps-1587115620/1 from GFG
+sl

@@ -1,5 +1,7 @@
 """
 3. Longest Substring Without Repeating Characters
+https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
+
 Medium
 
 Given a string s, find the length of the longest substring 
@@ -58,28 +60,6 @@ Complexity
 We move both of our pointers only to the left, so time complexity is O(n). Space complexity is O(1).
 """
 
-# Approach - 1
-
-
-class Solution:
-    def lengthOfLongestSubstring(self, s: str) -> int:
-        count = maxCount = 0
-        seen = []
-
-        for x in s:
-            if x not in seen:
-                seen.append(x)
-                count = len(seen)
-                if count > maxCount:
-                    maxCount = count
-            else:
-                seen[:seen.index(x)+1] = []
-                seen.append(x)
-                count = 0
-        return maxCount
-
-
-# Approach - 2
 class Solution:
     def lengthOfLongestSubstring(self, s):
         window = set()

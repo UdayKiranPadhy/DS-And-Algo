@@ -1,15 +1,18 @@
-from functools import lru_cache
+s, n = input().split(" ")
+n = int(n)
 
-class UserMainCode(object):
-    @classmethod
-    def arrangements(cls,input1):
 
-        @lru_cache(None)
-        def count(number):
-            if number == 1:
-                return 0
-            if number == 2:
-                return 1
-            return (number-1)* (count(number-1) + count(number-2))
-        
-        return count(input1)
+def convert(s, numRows):
+    if numRows == 1: return s
+    count, flag = 0, 1
+    res = [''] * numRows
+    for i, char in enumerate(s):
+        res[count] += char
+        if (flag == 1 and count == numRows - 1) or (flag == -1 and count == 0):
+            flag = -flag
+        count += flag
+    for i in res:
+        print(i)
+
+
+convert(s, n)

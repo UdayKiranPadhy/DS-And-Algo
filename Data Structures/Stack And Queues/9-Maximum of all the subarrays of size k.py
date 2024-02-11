@@ -51,31 +51,3 @@ Company Tags
 Topic Tags
  Arrays Queue Sliding-window
 """
-
-# My Trail
-def max_of_subarrays(N, K):
-    list1 = []
-    for i in range(0, len(N) - K + 1):
-        list1.append(max(N[i : i + K]))
-    print(list1)
-
-
-# max_of_subarrays([1, 2, 3, 1, 4, 5, 2, 3, 6], 3)
-# That Solution Exceeds the time limit
-
-def max_of_subarrays(arr,n,k):
-    '''
-    you can use collections module here.
-    :param a: given array
-    :param n: size of array
-    :param k: value of k
-    :return: A list of required values 
-    '''
-    #code here
-    list1 = []
-    max_element=max(arr[:k])
-    for i in range(0, len(arr) - k + 1):
-        if arr[i+k] > max_element:
-            max_element
-        list1.append(max(arr[i : i + k]))
-    return list1

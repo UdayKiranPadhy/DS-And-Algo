@@ -71,6 +71,7 @@ Finally, push the next in the stack.
 After the loop in step 2 is over, pop all the elements from stack and print -1 as next element for them.
 """
 
+
 # https://youtu.be/8P-Z7Oc8x9I
 # My Trail
 def nextLargerElement(arr, n):
@@ -128,7 +129,6 @@ Function Arguments :
 
 
 def nextLargerElement(arr, n):
-
     next_greater = [-1 for i in range(n)]  # our answer list, initialized to -1.
     s = createStack()
     element = 0
@@ -178,24 +178,4 @@ def nextLargerElement(arr, n):
     return next_greater
 
 
-# In C++
-"""
-vector<long long> nextLargerElement(vector<long long> arr, int n){
-    stack<long long > s;
-    vector<long long > res (n);
-    
-    for (int i = n-1; i >= 0; i--)
-    {
-        while (!s.empty () and s.top () <= arr[i])
-            s.pop ();
-            
-        if (s.empty ())
-            res[i] = -1;
-        else 
-            res[i] = s.top ();
-            
-        s.push (arr[i]);
-    }
-    return res;
-}
-"""
+sum([12,4,4])
