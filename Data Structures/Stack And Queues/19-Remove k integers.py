@@ -3,14 +3,10 @@
 402. Remove K Digits
 Medium
 
-5805
+Problem Statement:- https://leetcode.com/problems/remove-k-digits/description/
 
-242
-
-Add to List
-
-Share
-Given string num representing a non-negative integer num, and an integer k, return the smallest possible integer after removing k digits from num.
+Share Given string num representing a non-negative integer num, and an integer k, return the smallest possible
+integer after removing k digits from num.
 
  
 

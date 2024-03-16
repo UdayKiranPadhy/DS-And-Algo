@@ -34,7 +34,7 @@ s[0] == '0'
 1 <= minJump <= maxJump < s.length
 
 """
-
+import collections
 
 # Solution
 """
@@ -61,39 +61,6 @@ so here max_till_now would have helped us to skip indices 5 to 6 from again inse
 
 """
 
-
-# Mytrails Didnt succed due to TLE go down for success solution
-
-
-
-
-import collections
-from collections import deque
-class Solution:
-    def canReach(self, s: str, minJump: int, maxJump: int) -> bool:
-        if s[-1] != '0':
-            return False
-
-        q, farthest = deque([0]), 0
-
-        while(len(q) != 0):
-            element = q.popleft()
-            if element == len(s)-1:
-                return True
-            for i in range(element+minJump, element+maxJump+1):
-                if i >= len(s):
-                    continue
-                elif s[i] == '0':
-                    if i > farthest:
-                        q.append(i)
-                        farthest = i
-        else:
-            return False
-
-
-model = Solution()
-print(model.canReach("01101110", 2, 3))
-print(model.canReach("011010", 2, 3))
 
 
 # Accepted once
