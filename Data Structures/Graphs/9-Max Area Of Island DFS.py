@@ -33,7 +33,6 @@ grid[i][j] is either 0 or 1.
 
 """
 
-
 # Solution
 """
 Idea:
@@ -56,15 +55,24 @@ or O(N * M + L) if we create an N * M matrix in order to not modify the input
 
 
 class Solution:
-    def maxAreaOfIsland(self, grid: list[list[int]]) -> int:
-        ans, n, m = 0, len(grid), len(grid[0])
+    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
+        M = len(grid)
+        N = len(grid[0])
+        area = 0
+        directions = [(0, 1), (0, -1), (1, 0), (-1, 0)]
 
-        def trav(i: int, j: int) -> int:
-            if i < 0 or j < 0 or i >= n or j >= m or grid[i][j] == 0:
-                return 0
-            grid[i][j] = 0
-            return 1 + trav(i-1, j) + trav(i, j-1) + trav(i+1, j) + trav(i, j+1)
-        for i, j in product(range(n), range(m)):
-            if grid[i][j]:
-                ans = max(ans, trav(i, j))
-        return ans
+        def dfs(node):
+            total = 1
+            x, y = node
+            grid[x][y] = 0
+            for dx, dy in directions:
+                if 0 <= x + dx < M and 0 <= y + dy < N and grid[x + dx][y + dy] == 1:
+                    total += dfs((x + dx, y + dy))
+            return total
+
+        for i in range(M):
+            for j in range(N):
+                if grid[i][j] == 1:
+                    area = max(area, dfs((i, j)))
+
+        return area

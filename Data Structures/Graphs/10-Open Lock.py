@@ -108,59 +108,6 @@ So return -1.
 """
 
 
-# My Trails Failed
-
-
-
-
-from collections import deque
-def turn(string, i):
-    to_return = []
-    if int(string[i])+1 > 9:
-        to_return.append(string[:i]+"0"+string[i+1:])
-        to_return.append(string[:i]+str(int(string[i])-1) + string[i+1:])
-    elif int(string[i])-1 < 0:
-        to_return.append(string[:i]+str(int(string[i])+1) + string[i+1:])
-        to_return.append(string[:i]+"9"+string[i+1:])
-    else:
-        to_return.append(string[:i]+str(int(string[i])+1)+string[i+1:])
-        to_return.append(string[:i]+str(int(string[i])-1)+string[i+1:])
-    return to_return
-
-
-class Solution(object):
-    def OpenLock(self, deadends, target):
-        deadends = set()
-        if target in deadends:
-            return -1
-        visited = set()
-        queue = deque()
-        queue.append("0000")
-        rotations = 0
-        while len(queue) != 0:
-            N = len(queue)
-            for i in range(N):
-                poppedString = queue.popleft()
-                if poppedString not in visited and poppedString not in deadends:
-                    visited.add(poppedString)
-                    if poppedString == target:
-                        return rotations
-                    for i in range(4):
-                        turned = turn(poppedString, i)
-                        for _ in turned:
-                            if (_ not in deadends) and (_ not in visited):
-                                queue.append(_)
-            rotations += 1
-        else:
-            return -1
-
-
-# model = Solution()
-# deadends = ["0000", "8889", "8878", "8898", "8788", "8988", "7888", "9888"]
-# target = "8888"
-# print(model.OpenLock(deadends, target))
-
-
 # Solution Accepted
 
 class Solution:
