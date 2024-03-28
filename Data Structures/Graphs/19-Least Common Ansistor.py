@@ -1,5 +1,7 @@
 """
 
+https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/
+
 236. Lowest Common Ancestor of a Binary Tree
 Medium
 
@@ -56,13 +58,13 @@ class Solution:
         if root == None:
             return False
         if root.val == p.val:
-            array1.append(root.val)
+            array1.append(root)
             return True
         if Solution.findnode(root.left, p, array1):
-            array1.append(root.val)
+            array1.append(root)
             return True
         if Solution.findnode(root.right, p, array1):
-            array1.append(root.val)
+            array1.append(root)
             return True
 
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
@@ -73,10 +75,47 @@ class Solution:
         Solution.findnode(root, q, array2)
         array2.reverse()
         for i in range(1, len(array1) if len(array1) < len(array2) else len(array2)):
-            if array1[i] == array2[i]:
+            if array1[i].val == array2[i].val:
                 continue
             else:
-                return array1[i]
+                return array1[i - 1]
+        return array1[-1] if len(array1) < len(array2) else array2[-1]
+
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution2:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        stack_p = []
+        stack_q = []
+
+        def findpath(root, search, stack):
+            if root == None:
+                return False
+            stack.append(root)
+
+            if root.val == search.val:
+                return True
+
+            if findpath(root.left, search, stack) or findpath(root.right, search, stack):
+                return True
+
+            stack.pop()
+            return False
+
+        findpath(root, p, stack_p)
+        findpath(root, q, stack_q)
+        index = 0
+        for i in range(1, len(stack_p) if len(stack_p) < len(stack_q) else len(stack_q)):
+            if stack_p[i].val != stack_q[i].val:
+                return stack_p[i - 1]
+            index = i
+        return stack_p[index]
 
 
 # Method-2 Recursive
