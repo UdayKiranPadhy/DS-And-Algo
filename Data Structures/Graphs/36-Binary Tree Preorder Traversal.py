@@ -60,16 +60,12 @@ class Solution:
 
 class Solution:
     def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-        ans = []
+        def dfs(node):
+            if not node:
+                return []
+            return [node.val] + dfs(node.left) + dfs(node.right)
 
-        def dfs(root):
-            if root == None:
-                return
-            ans.append(root.val)
-            dfs(root.left)
-            dfs(root.right)
-        dfs(root)
-        return ans
+        return dfs(root)
 
 
 model = Solution()

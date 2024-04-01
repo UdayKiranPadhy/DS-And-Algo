@@ -3,18 +3,13 @@
 787. Cheapest Flights Within K Stops
 Medium
 
-3668
+There are n cities connected by some number of flights. You are given an array flights
+where flights[i] = [fromi, toi, pricei] indicates that there is a flight from city
+from i to city toi with cost price i.
 
-150
+You are also given three integers src, dst, and k, return the cheapest price from src
+to dst with at most k stops. If there is no such route, return -1.
 
-Add to List
-
-Share
-There are n cities connected by some number of flights. You are given an array flights where flights[i] = [fromi, toi, pricei] indicates that there is a flight from city fromi to city toi with cost pricei.
-
-You are also given three integers src, dst, and k, return the cheapest price from src to dst with at most k stops. If there is no such route, return -1.
-
- 
 
 Example 1:
 

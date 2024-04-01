@@ -1,4 +1,5 @@
 """
+https://leetcode.com/problems/critical-connections-in-a-network/description/
 
 1192. Critical Connections in a Network
 Hard
@@ -46,40 +47,42 @@ There are no repeated connections.
 # Here I give some details about the code, using the link I provided. The key observation about the bridge is:
 
 
-
 from collections import defaultdict
 from typing import List
 
 
 class Solution:
     def criticalConnections(self, N: int, connections: List[List[int]]) -> List[List[int]]:
-        graph = defaultdict(list)
-        tin = [-1] * N
-        low = [-1] * N
-        visited = set()
-        self.timer = 0
-        ans = []
+        timer = 0
+        t_entry = [-1] * N
+        low_link = [-1] * N
+        visited = [False] * N
+        result = []
 
-        def dfs(node,parent = -1):
-            visited.add(node)
-            tin[node] = low[node] = self.timer +1
-            self.timer += 1
-            for to in graph[node]:
-                if to == parent:
-                    continue
-                if to in visited:
-                    low[node] = min(low[node],tin[to])
-                else:
-                    dfs(to,node)
-                    low[node] = min(low[node],low[to])
-                    if low[to] > tin[node]:
-                        ans.append([node,to])
-        
-        for u,v in connections:
+        graph = defaultdict(list)
+        for u, v in connections:
             graph[u].append(v)
             graph[v].append(u)
 
+        def dfs(node: int, parent: int = -1):
+            nonlocal timer
+            visited[node] = True
+            t_entry[node] = low_link[node] = timer
+            timer += 1
+
+            for neibour in graph[node]:
+                if neibour == parent:
+                    continue
+                if visited[neibour]:
+                    low_link[node] = min(low_link[node], t_entry[neibour])
+                else:
+                    dfs(neibour, node)
+                    low_link[node] = min(low_link[node], low_link[neibour])
+                    if low_link[neibour] > t_entry[node]:
+                        result.append([node, neibour])
+
         for i in range(N):
-            if i not in visited:
+            if not visited[i]:
                 dfs(i)
-        return ans
+
+        return result

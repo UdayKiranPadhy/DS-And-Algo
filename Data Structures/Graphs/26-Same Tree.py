@@ -55,10 +55,15 @@ The number of nodes in both trees is in the range [0, 100].
 # Complexity: time complexity is O(n), because we traverse all tree. Space complexity is O(h) to keep recursion stack. Time complexity can be imporved a bit, if we use helper function and directly return False if we found difference between trees.
 
 
-class Solution:
+class Solution(object):
     def isSameTree(self, p, q):
-        if p and not q or q and not p:
-            return False
-        if not p and not q:
-            return True
-        return p.val == q.val and self.isSameTree(p.left, q.left) and self.isSameTree(p.right, q.right)
+        def dfs(root1, root2):
+            if not root1 and root2 or not root2 and root1:
+                return False
+            if not root1 and not root2:
+                return True
+            if root1.val != root2.val:
+                return False
+            return dfs(root1.left, root2.left) and dfs(root1.right, root2.right)
+
+        return dfs(p, q)

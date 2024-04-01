@@ -54,3 +54,17 @@ class Solution:
         node.left = self.invertTree(root.right)
         node.right = self.invertTree(root.left)
         return node
+
+
+class Solution2:
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        def post(node):
+            if not node:
+                return None
+            left = post(node.left)
+            right = post(node.right)
+            node.right = left
+            node.left = right
+            return node
+
+        return post(root)

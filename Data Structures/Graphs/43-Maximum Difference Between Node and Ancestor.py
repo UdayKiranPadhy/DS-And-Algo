@@ -36,3 +36,26 @@ The number of nodes in the tree is in the range [2, 5000].
 
 
 """
+
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, val=0, left=None, right=None):
+#         self.val = val
+#         self.left = left
+#         self.right = right
+class Solution:
+    def maxAncestorDiff(self, root: Optional[TreeNode]) -> int:
+        v = 0
+
+        def dfs(node, minimum, maximum):
+            nonlocal v
+            if not node:
+                return
+
+            v = max(v, abs(minimum - node.val), abs(maximum - node.val))
+            dfs(node.left, min(minimum, node.val), max(maximum, node.val))
+            dfs(node.right, min(minimum, node.val), max(maximum, node.val))
+
+        dfs(root, root.val, root.val)
+        return v
