@@ -1,5 +1,5 @@
 """
-
+https://leetcode.com/problems/sorting-the-sentence/
 1859. Sorting the Sentence
 Easy
 
@@ -53,3 +53,15 @@ class Solution:
         for i in range(2, len(cache) + 1):
             res += " " + cache[str(i)]
         return res
+
+
+class Solution:
+    def sortSentence(self, s: str) -> str:
+        sentence = s.split(" ")
+        new = ['_' for i in range(len(sentence)+1)]
+
+        for i in sentence:
+            index = i[-1]
+            new[int(index)] = i[:len(i)-1]
+        new = new[1:]
+        return " ".join(new)

@@ -71,5 +71,19 @@ class Solution:
         return count
 
 
+class Solution:
+    def minDeletions(self, s: str) -> int:
+        frequency = collections.Counter(s)
+
+        seen = set()
+        res = 0
+
+        for c, freq in frequency.items():
+            while freq > 0 and freq in seen:
+                freq -= 1
+                res += 1
+            seen.add(freq)
+        return res
+
 model = Solution()
 print(model.minDeletions('aaabbbcc'))

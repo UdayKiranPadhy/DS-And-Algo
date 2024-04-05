@@ -1,4 +1,5 @@
 """
+https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array
 
 421. Maximum XOR of Two Numbers in an Array
 Medium
@@ -41,7 +42,6 @@ Constraints:
 from collections import defaultdict
 from typing import DefaultDict, List
 
-
 class Trie:
     def __init__(self) -> None:
         self.root = DefaultDict()
@@ -67,7 +67,7 @@ class Trie:
                     gg += "1"
                     curr = curr["0"]
                 else:
-                    gg += "1"
+                    gg += "0"
                     curr = curr["1"]
         return gg
 
@@ -81,7 +81,6 @@ class Solution:
         for word in binaries:
             trie.insert(word)
         return max([int(trie.findXOR(num), 2) for num in binaries])
-
 
 model = Solution()
 model.findMaximumXOR([3, 5, 1, 4, 66, 7, 100])
