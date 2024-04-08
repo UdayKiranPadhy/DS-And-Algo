@@ -1,7 +1,9 @@
 """
 Date:-28/06/21
 Link :- Leetcode
+https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/description/
 
+Remove All Adjacent Duplicates In String
 
 You are given a string s consisting of lowercase English letters. A duplicate removal consists of choosing two
 adjacent and equal letters and removing them.

@@ -39,3 +39,22 @@ Constraints:
 1 <= nums.length <= 10^5
 0 <= nums[i] <= 10^5
 """
+from typing import List
+
+
+class Solution:
+    def minDeletion(self, nums: List[int]) -> int:
+        stack = []
+        N = len(nums)
+        deletions = 0
+        for idx, value in enumerate(nums):
+            if stack and stack[-1][1]%2 == 0 and stack[-1][0] == value:
+                deletions += 1
+                continue
+            stack.append([value,idx-deletions])
+        return deletions if len(stack)%2 == 0 else deletions + 1
+
+
+
+model = Solution()
+print(model.minDeletion([1,1,2,2,3,3]))

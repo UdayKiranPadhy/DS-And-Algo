@@ -52,6 +52,7 @@ Topic Tags
  Dynamic Programming
 """
 
+
 # Memorizatation version is same as just Recursive Calls + A table to stor the values
 # in Top to down Approach we only use table and no recursive Calls
 
@@ -81,16 +82,18 @@ n = len(string2)
 m = len(string1)
 dp = [[-1 for _ in range(n + 1)] for _ in range(m + 1)]
 print(LCS(string1, string2, m, n))
+
+
 # print(dp)
 
 
-    def lcs(self,m,n,s1,s2):
-        dp = [[0 for _ in range(n+1)]for __ in range(m+1)]
-        for j in range(1,m+1):
-            for i in range(1,n+1):
-                if s1[i-1]==s2[j-1]:
-                    dp[m][n] = 1+dp[m-1][n-1]
-                else:
-                    dp[m][n] = max(dp[m-1][n],dp[m][n-1])
-        
+def lcs(self, m, n, s1, s2):
+    dp = [[0 for _ in range(n + 1)] for __ in range(m + 1)]
+    for j in range(1, m + 1):
+        for i in range(1, n + 1):
+            if s1[i - 1] == s2[j - 1]:
+                dp[m][n] = 1 + dp[m - 1][n - 1]
+            else:
+                dp[m][n] = max(dp[m - 1][n], dp[m][n - 1])
+
         return dp[-1][-1]

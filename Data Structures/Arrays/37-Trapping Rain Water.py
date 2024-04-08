@@ -1,5 +1,7 @@
 """
 
+https://leetcode.com/problems/trapping-rain-water/description/
+
 42. Trapping water
 Hard
 

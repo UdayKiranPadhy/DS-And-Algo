@@ -22,18 +22,11 @@ to 1 is 3 , 3 is 4 , 2 is 4 and for 4 ?
 since it doesn't exist, it is -1.
 Example 2:
 
-Input: 
-N = 5, arr[] [6 8 0 1 3]
-Output:
-8 -1 1 3 -1
-Explanation:
-In the array, the next larger element to 
-6 is 8, for 8 there is no larger elements 
-hence it is -1, for 0 it is 1 , for 1 it 
-is 3 and then for 3 there is no larger 
-element on right and hence -1.
-Your Task:
-This is a function problem. You only need to complete the function nextLargerElement() that takes list of integers arr[ ] and N as input parameters and returns list of integers of length N denoting the next greater elements for all the corresponding elements in the input array.
+Input: N = 5, arr[] [6 8 0 1 3] Output: 8 -1 1 3 -1 Explanation: In the array, the next larger element to 6 is 8,
+for 8 there is no larger elements hence it is -1, for 0 it is 1 , for 1 it is 3 and then for 3 there is no larger
+element on right and hence -1. Your Task: This is a function problem. You only need to complete the function
+nextLargerElement() that takes list of integers arr[ ] and N as input parameters and returns list of integers of
+length N denoting the next greater elements for all the corresponding elements in the input array.
 
 Expected Time Complexity : O(N)
 Expected Auxilliary Space : O(N)
@@ -50,10 +43,9 @@ Stacks
 # https://www.geeksforgeeks.org/next-greater-element/
 # https://practice.geeksforgeeks.org/problems/next-larger-element-1587115620/1
 
-"""
-Method 1 (Simple) 
-Use two loops: The outer loop picks all the elements one by one. The inner loop looks for the first greater element for the element picked by the outer loop. If a greater element is found then that element is printed as next, otherwise -1 is printed.
-"""
+"""Method 1 (Simple) Use two loops: The outer loop picks all the elements one by one. The inner loop looks for the 
+first greater element for the element picked by the outer loop. If a greater element is found then that element is 
+printed as next, otherwise -1 is printed."""
 
 # printNGE(arr)
 """

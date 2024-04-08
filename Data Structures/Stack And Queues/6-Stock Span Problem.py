@@ -36,4 +36,5 @@ def StockSpan(arr):
         stack.append(i - output[i][1])
     return stack
 
+
 print(StockSpan([100, 80, 60, 70, 60, 75, 85]))

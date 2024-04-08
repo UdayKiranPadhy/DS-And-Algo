@@ -40,23 +40,25 @@ All the strings of wordDict are unique.
 https://leetcode.com/problems/word-break/
 
 """
-
+from functools import cache
 from typing import List
 
 
 class Solution:
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
+        wordDict = set(wordDict)
         N = len(s)
-        dp = [False] * (N + 1)
-        dp[N] = True
-        for i in range(N-1, -1, -1):
-            for word in wordDict:
-                if (i + len(word)) <= N and s[i:i+len(word)] == word:
-                    dp[i] = dp[i+len(word)]
-                if dp[i] == True:
-                    break
-        return dp[0]
 
+        @cache
+        def dp(index):
+            if index == N:
+                return True
+            for next_index in range(index + 1, N + 1):
+                if s[index:next_index] in wordDict and dp(next_index):
+                    return True
+            return False
+
+        return dp(0)
 
 model = Solution()
 print(model.wordBreak("leetcode", ["leet", "code"]))

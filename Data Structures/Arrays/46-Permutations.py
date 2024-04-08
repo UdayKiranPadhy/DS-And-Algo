@@ -42,6 +42,23 @@ class Solution:
             gg.append(list(i))
         return gg
 
+
+
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        N = len(nums)
+        result = []
+        def dfs(rest_of_elements, ans):
+            if len(ans) == N:
+                result.append(ans[:])
+                return
+            for idx,value in enumerate(rest_of_elements):
+                ans += [value]
+                dfs(rest_of_elements[:idx] + rest_of_elements[idx+1:], ans)
+                ans.pop()
+        dfs(nums,[])
+        return result
+
 # Additional Info
 
 

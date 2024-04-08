@@ -7,8 +7,8 @@ MediumAccuracy: 33.0%Submissions: 278K+Points: 4
 Internship Alert!
 Become an SDE Intern by topping this monthly leaderboard!
 
-banner
-Given an array of positive integers. Find the length of the longest sub-sequence such that elements in the subsequence are consecutive integers, the consecutive numbers can be in any order.
+banner Given an array of positive integers. Find the length of the longest sub-sequence such that elements in the
+subsequence are consecutive integers, the consecutive numbers can be in any order.
 
 
 Example 1:

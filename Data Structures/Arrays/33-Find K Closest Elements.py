@@ -1,7 +1,9 @@
 """
 Date :- 2 July 2021
 Source :- Leetcode
+https://leetcode.com/problems/find-k-closest-elements/description/
 
+658. Find K Closest Elements
 Given a sorted integer array arr, two integers k and x, return 
 the k closest integers to x in the array. The result should also 
 be sorted in ascending order.
@@ -122,6 +124,17 @@ process will remain the same of above - use 2-pointers to fit k elements inside 
 Time Complexity : O(log(n-k) + k), We need O(logn) time complexity to find r at the start. Then we need another O(k) time to expand our window to fit k elements
 Space Complexity : O(1)
 """
+
+class Solution:
+    def findClosestElements(self, A, k, x):
+        left, right = 0, len(A) - k
+        while left < right:
+            mid = (left + right) / 2
+            if x - A[mid] > A[mid + k] - x:
+                left = mid + 1
+            else:
+                right = mid
+        return A[left:left + k]
 
 
 # Solution - V (Modified Binary Search to find L)

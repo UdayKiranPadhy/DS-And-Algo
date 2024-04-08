@@ -1,8 +1,8 @@
 """
 
-Problem Statement : https://leetcode.com/problems/best-time-to-buy-and-sell-/
+Problem Statement : https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/
 
-121. Best Time to Buy and Sell 
+121. Best Time to Buy and Sell Stock
 Easy
 You are given an array prices where prices[i] is the price of a given  on the ith day.
 
@@ -37,6 +37,19 @@ Constraints:
 
 # Solution Explanatation :- https://www.youtube.com/watch?v=4YjEHmw1MX0&list=PL-Jc9J83PIiG8fE6rj9F5a6uyQ5WPdqKy&index=30&ab_channel=Pepcoding
 # https://www.youtube.com/watch?v=eMSfBgbiEjk&ab_channel=takeUforward
+
+
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        profit = 0
+        least_value = float('inf')
+
+        for i in range(len(prices)):
+            profit = max(profit, prices[i] - least_value)
+            least_value = min(least_value, prices[i])
+
+        return profit
+
 
 
 def main2():

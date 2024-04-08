@@ -119,10 +119,20 @@ n == gas.length == cost.length
 """
 
 
-# class Solution:
-#     def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
+class Solution:
+    def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
+        N = len(gas)
+        total = sum([gas[i] - cost[i] for i in range(N)])
+        if total < 0:
+            return -1
+        current = 0
+        current_min = 0
+        position = 0
 
+        for i in range(N):
+            current += gas[i] - cost[i]
+            if current < current_min:
+                position = (i + 1) % N
+                current_min = current
 
-nums = [1,2,3,4]
-
-print(*nums)
+        return position

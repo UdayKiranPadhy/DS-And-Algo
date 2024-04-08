@@ -86,4 +86,3 @@ class Solution:
 
 
 # Same Question https://www.geeksforgeeks.org/problems/minimum-number-of-jumps-1587115620/1 from GFG
-sl

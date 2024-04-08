@@ -44,25 +44,26 @@ Constraints:
 
 """
 
+
 # https://www.youtube.com/watch?v=CBFn7zWMOBQ&ab_channel=AyushiSharma
 
 class Solution:
-    
+
     # arr[] : the input array
     # N : size of the array arr[]
-    
-    #Function to return length of longest subsequence of consecutive integers.
-    def findLongestConseqSubseq(self,arr, N):
+
+    # Function to return length of longest subsequence of consecutive integers.
+    def findLongestConseqSubseq(self, arr, N):
         items = set(arr)
         max_length = 0
         for i in arr:
-            if i-1 in items :
+            if i - 1 in items:
                 continue
             else:
                 # this might be the start of a new sequence
                 curr = 1
-                while i+1 in items:
-                    curr+=1
+                while i + 1 in items:
+                    curr += 1
                     i = i + 1
-                max_length = max(curr,max_length)
+                max_length = max(curr, max_length)
         return max_length

@@ -71,13 +71,12 @@ n == dist.length == speed.length
 # Solution
 """
 
-basic idea first we see at what time monster comes to reach us
-then for example monster comes at 1 2 3 4 sec then we can kill all
-but monsters comes at 2 2 2 seconds to uss then we can kill at max 2
-prev is a time counter if times == monster coming time then monster will kill us
-for example monster coming time is 1 2 3 3 then at t=0 we kill 1 st monster then prev becomes 1 then we kill monster who would have reached at 2 seconf then prev becomes 2 then we kill the monster who would have reached at 3 and prev becomes 3 but now one monster reached us game over
-we used sort of times monster reach us
-also we used count to see how many monsters we can kill
+basic idea first we see at what time monster comes to reach us then for example monster comes at 1 2 3 4 sec then we 
+can kill all but monsters comes at 2 2 2 seconds to uss then we can kill at max 2 prev is a time counter if times == 
+monster coming time then monster will kill us for example monster coming time is 1 2 3 3 then at t=0 we kill 1 st 
+monster then prev becomes 1 then we kill monster who would have reached at 2 seconf then prev becomes 2 then we kill 
+the monster who would have reached at 3 and prev becomes 3 but now one monster reached us game over we used sort of 
+times monster reach us also we used count to see how many monsters we can kill
 
 """
 import math
@@ -86,7 +85,7 @@ class Solution:
         if 0 in dist:
             return 0
         time=[]
-        for i in range(len(dict)):
+        for i in range(len(dist)):
             time.append(math.ceil(dist[i]/speed[i]))
         time.sort()
         kills=  0

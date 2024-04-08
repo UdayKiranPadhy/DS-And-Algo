@@ -38,35 +38,23 @@ m == worker.length
 
 """
 
-# Approach #1: Sorting Events [Accepted]
-# Intuition
-
-# We can consider the workers in any order, so let's process them in order of skill.
-
-# If we processed all jobs with lower skill first, then the profit is just the most profitable job we have seen so far.
-
-# Algorithm
-
-# We can use a "two pointer" approach to process jobs in order. We will keep track of best, the maximum profit seen.
-
-# For each worker with a certain skill, after processing all jobs with lower or equal difficulty, we add best to our answer.
-
-
 from typing import List
 
 
 # Input: difficulty = [2,4,6,8,10], profit = [10,20,30,40,50], worker = [4,5,6,7]
 class Solution:
     def maxProfitAssignment(self, difficulty: List[int], profit: List[int], worker: List[int]) -> int:
-        jobs = zip(difficulty, profit)
-        jobs = sorted(jobs)
-        worker.sort()
-        best = 0
-        result = 0
-        curr = 0
-        for i in worker:
-            while curr < len(difficulty) and i >= jobs[curr][0]:
-                best = max(best, jobs[curr][0])
-                curr += 1
-            result += best
-        return result
+        jobs = sorted(zip(profit, difficulty), reverse=True)
+        worker.sort(reverse=True)
+        total = 0
+        job_pointer = 0
+        for diff in worker:
+            while job_pointer < len(jobs) and jobs[job_pointer][1] > diff:
+                job_pointer += 1
+            if job_pointer < len(jobs):
+                total += jobs[job_pointer][0]
+
+        return total
+
+model = Solution()
+print(model.maxProfitAssignment([2,4,6,8,10],[10,20,30,40,50],[4,5,6,7]))
