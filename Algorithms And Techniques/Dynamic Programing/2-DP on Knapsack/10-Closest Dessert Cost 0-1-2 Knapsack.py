@@ -68,33 +68,28 @@ m == toppingCosts.length
 1 <= target <= 10^4
 
 """
+from functools import cache
+from typing import List
 
 
 class Solution:
-    def closestCost(self, baseCosts: list[int], toppingCosts: list[int], target: int) -> int:
-        ans = []
-        result = [float('inf')]
+    def closestCost(self, baseCosts: List[int], toppingCosts: List[int], target: int) -> int:
 
-        mem = set()
+        @cache
+        def solve(value, j=0):
 
-        def process(b, idx=0):
-            req = (target-b)
-            if abs(req) < abs(target-result[0]) or abs(req) == abs(target-result[0]) and b < target:
-                result[0] = b
+            if j == len(toppingCosts):
+                return value
 
-            if b > target:
-                return
+            # Pruning makes this really fast!
+            if value > target:
+                return value
 
-            if (b, idx) in mem:
-                return
-            mem.add((b, idx))
+            return min(
+                solve(value + 2 * toppingCosts[j], j + 1),
+                solve(value + toppingCosts[j], j + 1),
+                solve(value, j + 1),
+                key=lambda x: (abs(target - x), x)
+            )
 
-            for i in range(idx, len(toppingCosts)):
-                process(b, i+1)
-                process(b+toppingCosts[i], i+1)
-                process(b+toppingCosts[i]+toppingCosts[i], i+1)
-
-        for b in baseCosts:
-            process(b)
-
-        return result[0]
+        return min([solve(base) for base in baseCosts], key=lambda x: (abs(target - x), x))

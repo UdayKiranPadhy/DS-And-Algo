@@ -37,34 +37,6 @@ The frequency of each element is in the range [1, 4].
 """
 
 
-# My initial trails
-"""
-I went in totally wrng way , not even realeated to question
-"""
-
-
-
-
-from functools import lru_cache
-class Solution:
-    def canPartitionKSubsets(self, nums: list[int], k: int) -> bool:
-        N = len(nums)
-        sums = {}
-
-        def go(mask, sum):
-            if sum in sums and mask != 0:
-                sums[sum] += 1
-            elif mask != 0:
-                sums[sum] = 1
-            for i in range(N):
-                if (mask & (1 << i) == 0):
-                    go(mask ^ (1 << i), sum+nums[i])
-        go(0, 0)
-        print(sums)
-        if k in sums.values():
-            return True
-        else:
-            return False
 
 
 # Right Solution
@@ -140,3 +112,5 @@ def canPartitionKSubsets(self, nums: list[int], k: int) -> bool:
     res = False
     path_finder(0, 0)
     return res
+
+from bisect import bisect_left
